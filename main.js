@@ -22,5 +22,34 @@ async function animateTyping() {
     }
 }
 
-// Start animation
+// Carousel functionality
+const carousel = document.querySelector('.carousel-inner');
+const items = document.querySelectorAll('.carousel-item');
+let currentIndex = 0;
+
+document.querySelector('.carousel-button.next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateCarousel();
+});
+
+document.querySelector('.carousel-button.prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateCarousel();
+});
+
+function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Start animations
 animateTyping();
+
+// Smooth scrolling for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
