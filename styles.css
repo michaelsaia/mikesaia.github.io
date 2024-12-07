@@ -1,171 +1,55 @@
-body { 
-    background-color: #1a1a1a;
-    color: #ffffff;
-}
+/* Previous styles remain the same ... */
 
-.bg-twitch { background-color: #9146FF; }
-.text-twitch { color: #9146FF; }
-.border-twitch { border-color: #9146FF; }
-
-/* Hero Section Styling */
-.hero-section {
-    background-color: #121212;
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(145, 70, 255, 0.2);
-}
-
-.shape-blob {
-    position: absolute;
-    background: rgba(145, 70, 255, 0.1);
-    border-radius: 50%;
-    animation: blobAnimation 25s ease-in-out infinite;
-    transform-origin: 50% 50%;
-    z-index: 0;
-    filter: blur(20px);
-}
-
-.shape-blob.one {
-    width: 800px;
-    height: 800px;
-    left: -200px;
-    top: -200px;
-}
-
-.shape-blob.two {
-    width: 600px;
-    height: 600px;
-    right: -100px;
-    bottom: -100px;
-    animation-delay: -10s;
-}
-
-@keyframes blobAnimation {
-    0%, 100% { 
-        border-radius: 50%;
-        transform: translate(0, 0) rotate(0deg) scale(1); 
-    }
-    33% { 
-        border-radius: 60% 40% 70% 30%;
-        transform: translate(50px, -50px) rotate(120deg) scale(1.1); 
-    }
-    66% { 
-        border-radius: 30% 60% 40% 70%;
-        transform: translate(-50px, 50px) rotate(240deg) scale(0.9); 
-    }
-}
-
-.nav-circle {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: rgba(145, 70, 255, 0.9);
-    position: relative;
-}
-
-.nav-circle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px rgba(145, 70, 255, 0.4);
-}
-
-.nav-circles-container {
-    height: 160px; /* Fixed height to prevent jumping */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile-pic {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    border: 6px solid #9146FF;
-    box-shadow: 0 0 30px rgba(145, 70, 255, 0.3);
-    margin: 0 auto;
-    object-fit: cover;
-    position: relative;
-    z-index: 1;
-}
-
-.profile-container {
-    position: relative;
-    margin-bottom: 2rem;
-}
-
-.typed-text {
-    min-height: 2em; /* Fixed height for typing animation */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Dark theme cards */
-.experience-card {
-    background-color: #1e1e1e;
-    border-left: 4px solid #9146FF;
-    transition: all 0.3s ease;
-}
-
-.experience-card:hover {
-    transform: translateX(10px);
-    box-shadow: -5px 5px 20px rgba(145, 70, 255, 0.2);
-}
-
-.skill-pill {
-    background-color: #1e1e1e;
-    transition: all 0.3s ease;
-}
-
-.skill-pill:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(145, 70, 255, 0.2);
-}
-
-.skill-tag {
-    background-color: #2d2d2d;
-    color: #ffffff;
-}
-
-/* Carousel styling */
+/* Updated Carousel styling */
 .carousel {
     position: relative;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(145, 70, 255, 0.2);
     background-color: #1e1e1e;
+    max-width: 800px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
 }
 
 .carousel-inner {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    height: 100%;
 }
 
 .carousel-item {
     flex: 0 0 100%;
     position: relative;
+    height: 100%;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .carousel-caption {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    background: rgba(26, 26, 26, 0.8);
     color: white;
-    padding: 1rem;
-    transform: translateY(100%);
-    transition: transform 0.3s ease-in-out;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
 }
 
 .carousel-item:hover .carousel-caption {
-    transform: translateY(0);
+    opacity: 1;
 }
 
 .carousel-button {
@@ -184,6 +68,7 @@ body {
     justify-content: center;
     font-size: 1.5rem;
     z-index: 10;
+    transition: all 0.3s ease;
 }
 
 .carousel-button:hover {
@@ -191,17 +76,16 @@ body {
     transform: translateY(-50%) scale(1.1);
 }
 
-/* Section backgrounds */
-section {
-    background-color: #121212;
+.carousel-button.prev {
+    left: 1rem;
 }
 
-section:nth-child(even) {
-    background-color: #1a1a1a;
+.carousel-button.next {
+    right: 1rem;
 }
 
-/* Footer */
-footer {
-    background-color: #0a0a0a;
-    border-top: 1px solid rgba(145, 70, 255, 0.2);
+.carousel-caption p {
+    font-size: 1.25rem;
+    max-width: 80%;
+    margin: 0 auto;
 }
