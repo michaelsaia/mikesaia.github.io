@@ -1,0 +1,125 @@
+.bg-twitch { background-color: #9146FF; }
+.text-twitch { color: #9146FF; }
+.border-twitch { border-color: #9146FF; }
+
+.nav-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(145, 70, 255, 0.9);
+}
+
+.nav-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(145, 70, 255, 0.4);
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 6px solid #9146FF;
+    box-shadow: 0 0 30px rgba(145, 70, 255, 0.3);
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(145, 70, 255, 0.2);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    padding: 0 1rem;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(145, 70, 255, 0.9);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-button:hover {
+    background: rgba(145, 70, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button.prev { left: 1rem; }
+.carousel-button.next { right: 1rem; }
+
+.shape-blob {
+    position: absolute;
+    background: rgba(145, 70, 255, 0.1);
+    border-radius: 50%;
+    animation: blobAnimation 25s ease-in-out infinite;
+    transform-origin: 50% 50%;
+    z-index: -1;
+}
+
+.shape-blob.one {
+    width: 500px;
+    height: 500px;
+    left: -100px;
+    top: -100px;
+}
+
+.shape-blob.two {
+    width: 400px;
+    height: 400px;
+    right: -80px;
+    bottom: -80px;
+    animation-delay: -5s;
+}
+
+@keyframes blobAnimation {
+    0%, 100% { border-radius: 50%; transform: scale(1) rotate(0deg); }
+    33% { border-radius: 60% 40% 70% 30%; transform: scale(1.1) rotate(120deg); }
+    66% { border-radius: 30% 60% 40% 70%; transform: scale(0.9) rotate(240deg); }
+}
+
+.experience-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid #9146FF;
+}
+
+.experience-card:hover {
+    transform: translateX(10px);
+    box-shadow: -5px 5px 10px rgba(145, 70, 255, 0.2);
+}
+
+.typed-text::after {
+    content: '|';
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
