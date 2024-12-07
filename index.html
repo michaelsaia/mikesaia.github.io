@@ -1,4 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-[Previous HTML content from the enhanced version]
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike Saia - Technology Strategy & Engineering</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .bg-twitch { background-color: #9146FF; }
+        .text-twitch { color: #9146FF; }
+        .border-twitch { border-color: #9146FF; }
+        .hover\:bg-twitch-dark:hover { background-color: #7924ff; }
+        
+        .shape-blob {
+            position: absolute;
+            background: rgba(145, 70, 255, 0.1);
+            border-radius: 50%;
+            animation: blobAnimation 25s ease-in-out infinite;
+            transform-origin: 50% 50%;
+            z-index: -1;
+        }
+        
+        .shape-blob.one {
+            width: 400px;
+            height: 400px;
+            left: -100px;
+            top: -100px;
+        }
+        
+        .shape-blob.two {
+            width: 300px;
+            height: 300px;
+            right: -80px;
+            bottom: -80px;
+            animation-delay: -5s;
+        }
+        
+        @keyframes blobAnimation {
+            0%, 100% { border-radius: 50%; transform: scale(1) rotate(0deg); }
+            33% { border-radius: 60% 40% 70% 30%; transform: scale(1.1) rotate(120deg); }
+            66% { border-radius: 30% 60% 40% 70%; transform: scale(0.9) rotate(240deg); }
+        }
+        
+        .experience-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #9146FF;
+        }
+        
+        .experience-card:hover {
+            transform: translateX(10px);
+            box-shadow: -5px 5px 10px rgba(145, 70, 255, 0.2);
+        }
+        
+        .skill-pill {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(145, 70, 255, 0.2);
+        }
+        
+        .skill-pill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(145, 70, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+        
+        .skill-pill:hover::after {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="shape-blob one"></div>
+    <div class="shape-blob two"></div>
+
+    <header class="bg-twitch text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-bold">Mike Saia</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#experience" class="hover:text-gray-300 transition duration-300">Experience</a>
+                    <a href="#skills" class="hover:text-gray-300 transition duration-300">Skills</a>
+                    <a href="#projects" class="hover:text-gray-300 transition duration-300">Projects</a>
+                    <a href="#education" class="hover:text-gray-300 transition duration-300">Education</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container mx-auto px-6 py-16 relative">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 z-10">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Technology Strategy & Engineering</h1>
+                <p class="text-xl text-gray-600 mb-8">PwC Technology Strategy Senior Associate | Georgia Tech Alumni</p>
+                <div class="flex space-x-4">
+                    <a href="mailto:mikesaia@proton.me" class="bg-twitch text-white px-6 py-3 rounded-lg hover:bg-twitch-dark transition duration-300">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="border-2 border-twitch text-twitch px-6 py-3 rounded-lg hover:bg-twitch hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-16 bg-white relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Experience</h2>
+            <div class="space-y-8">
+                <div class="experience-card bg-white p-6 rounded-lg">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold text-twitch">Technology Strategy Senior Associate</h3>
+                            <p class="text-gray-600">PricewaterhouseCoopers (PwC)</p>
+                        </div>
+                        <span class="text-gray-500">January 2023 – Present</span>
+                    </div>
+                    <ul class="mt-4 space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Led product strategy for Quote-to-Cash technology transformation at F500 telecom client, reducing OpEx by 60%
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Developed NLP MVP and managed LLM solution for contract analysis across 100+ historical contracts
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Owned post-M&A integration program management for ~$1B telecom acquisition
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="experience-card bg-white p-6 rounded-lg">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold text-twitch">Cloud & Digital Strategy Associate</h3>
+                            <p class="text-gray-600">PricewaterhouseCoopers (PwC)</p>
+                        </div>
+                        <span class="text-gray-500">August 2021 – December 2022</span>
+                    </div>
+                    <ul class="mt-4 space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Led future of work assessment for F100 tech corporation
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Owned development of web applications and staffing optimization model for $17M program
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Created employee experience strategy through 40+ stakeholder interviews
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Skills & Technologies</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="skill-pill p-4 bg-white rounded-lg shadow-md">
+                    <h3 class="font-bold mb-2 text-twitch">Languages</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 rounded">Python</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded">SQL</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded">JavaScript</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded">Node.js</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded">VBA</span>
+                    </div>
+                </div>
+                <div class="skill-pill p-4 bg-white rounded-lg shadow-md">
+                    <h3 class="font-bold mb-2 text-twitch">Methodologies</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 rounded">Agile</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded">Product Strategy</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded">Data Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-pill p-4 bg-white rounded-lg shadow-md">
+                    <h3 class="font-bold mb-2 text-twitch">Software</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 rounded">Microsoft Office</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded">Tableau</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded">GitHub</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded">AWS</span>
+                    </div>
+                </div>
+                <div class="skill-pill p-4 bg-white rounded-lg shadow-md">
+                    <h3 class="font-bold mb-2 text-twitch">Certifications</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-gray-100 rounded">ITIL v4</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded">Alteryx Core</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded">IDC Cloud</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Education</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="experience-card bg-white p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-twitch">Georgia Institute of Technology</h3>
+                    <p class="text-gray-600">Bachelor of Science, Industrial Engineering</p>
+                    <p class="text-gray-600">Concentration in Analytics and Data Science</p>
+                    <p class="text-gray-500">August 2016 – December 2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2024 Mike Saia. All rights reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="mailto:mikesaia@proton.me" class="hover:text-twitch transition duration-300">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="hover:text-twitch transition duration-300">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
