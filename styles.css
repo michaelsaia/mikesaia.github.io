@@ -1,15 +1,143 @@
-/* Previous styles remain the same ... */
+body { 
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
 
-/* Updated Carousel styling */
+.bg-twitch { background-color: #9146FF; }
+.text-twitch { color: #9146FF; }
+.border-twitch { border-color: #9146FF; }
+
+/* Hero Section Styling */
+.hero-section {
+    background-color: #121212;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(145, 70, 255, 0.2);
+}
+
+.shape-blob {
+    position: absolute;
+    background: rgba(145, 70, 255, 0.1);
+    border-radius: 50%;
+    animation: blobAnimation 25s ease-in-out infinite;
+    transform-origin: 50% 50%;
+    z-index: 0;
+    filter: blur(20px);
+}
+
+.shape-blob.one {
+    width: 800px;
+    height: 800px;
+    left: -200px;
+    top: -200px;
+}
+
+.shape-blob.two {
+    width: 600px;
+    height: 600px;
+    right: -100px;
+    bottom: -100px;
+    animation-delay: -10s;
+}
+
+@keyframes blobAnimation {
+    0%, 100% { 
+        border-radius: 50%;
+        transform: translate(0, 0) rotate(0deg) scale(1); 
+    }
+    33% { 
+        border-radius: 60% 40% 70% 30%;
+        transform: translate(50px, -50px) rotate(120deg) scale(1.1); 
+    }
+    66% { 
+        border-radius: 30% 60% 40% 70%;
+        transform: translate(-50px, 50px) rotate(240deg) scale(0.9); 
+    }
+}
+
+.nav-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(145, 70, 255, 0.9);
+    position: relative;
+}
+
+.nav-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(145, 70, 255, 0.4);
+}
+
+.nav-circles-container {
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 6px solid #9146FF;
+    box-shadow: 0 0 30px rgba(145, 70, 255, 0.3);
+    margin: 0 auto;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+#typed-text {
+    min-height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dark theme cards */
+.experience-card {
+    background-color: #1e1e1e;
+    border-left: 4px solid #9146FF;
+    transition: all 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateX(10px);
+    box-shadow: -5px 5px 20px rgba(145, 70, 255, 0.2);
+}
+
+.skill-pill {
+    background-color: #1e1e1e;
+    transition: all 0.3s ease;
+}
+
+.skill-pill:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(145, 70, 255, 0.2);
+}
+
+/* Updated Carousel Styles */
 .carousel {
     position: relative;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(145, 70, 255, 0.2);
     background-color: #1e1e1e;
-    max-width: 800px;
-    margin: 0 auto;
     aspect-ratio: 16/9;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 .carousel-inner {
@@ -84,8 +212,22 @@
     right: 1rem;
 }
 
-.carousel-caption p {
-    font-size: 1.25rem;
-    max-width: 80%;
-    margin: 0 auto;
+/* Dark theme text colors */
+.text-gray-600 { color: #a0aec0; }
+.text-gray-700 { color: #cbd5e0; }
+.bg-gray-100 { background-color: #2d2d2d; }
+
+/* Footer */
+footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid rgba(145, 70, 255, 0.2);
+}
+
+/* Section backgrounds */
+section {
+    background-color: #121212;
+}
+
+section:nth-child(even) {
+    background-color: #1a1a1a;
 }
