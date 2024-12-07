@@ -6,133 +6,7 @@
     <title>Mike Saia</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        .bg-twitch { background-color: #9146FF; }
-        .text-twitch { color: #9146FF; }
-        .border-twitch { border-color: #9146FF; }
-        
-        .nav-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background: rgba(145, 70, 255, 0.9);
-        }
-        
-        .nav-circle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(145, 70, 255, 0.4);
-        }
-        
-        .profile-pic {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 6px solid #9146FF;
-            box-shadow: 0 0 30px rgba(145, 70, 255, 0.3);
-            margin: 0 auto;
-            object-fit: cover;
-        }
-        
-        .carousel {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(145, 70, 255, 0.2);
-        }
-        
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        
-        .carousel-item {
-            flex: 0 0 100%;
-            padding: 0 1rem;
-        }
-        
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(145, 70, 255, 0.9);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border: none;
-            cursor: pointer;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-        
-        .carousel-button:hover {
-            background: rgba(145, 70, 255, 1);
-            transform: translateY(-50%) scale(1.1);
-        }
-        
-        .carousel-button.prev { left: 1rem; }
-        .carousel-button.next { right: 1rem; }
-        
-        .shape-blob {
-            position: absolute;
-            background: rgba(145, 70, 255, 0.1);
-            border-radius: 50%;
-            animation: blobAnimation 25s ease-in-out infinite;
-            transform-origin: 50% 50%;
-            z-index: -1;
-        }
-        
-        .shape-blob.one {
-            width: 500px;
-            height: 500px;
-            left: -100px;
-            top: -100px;
-        }
-        
-        .shape-blob.two {
-            width: 400px;
-            height: 400px;
-            right: -80px;
-            bottom: -80px;
-            animation-delay: -5s;
-        }
-        
-        @keyframes blobAnimation {
-            0%, 100% { border-radius: 50%; transform: scale(1) rotate(0deg); }
-            33% { border-radius: 60% 40% 70% 30%; transform: scale(1.1) rotate(120deg); }
-            66% { border-radius: 30% 60% 40% 70%; transform: scale(0.9) rotate(240deg); }
-        }
-
-        .experience-card {
-            transition: all 0.3s ease;
-            border-left: 4px solid #9146FF;
-        }
-        
-        .experience-card:hover {
-            transform: translateX(10px);
-            box-shadow: -5px 5px 10px rgba(145, 70, 255, 0.2);
-        }
-
-        .typed-text::after {
-            content: '|';
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-    </style>
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
     <div class="shape-blob one"></div>
@@ -165,10 +39,64 @@
         </div>
     </section>
 
-    <!-- Keep existing sections for Experience, Skills, Projects -->
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-white relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Experience</h2>
+            <div class="space-y-8">
+                <div class="experience-card bg-white p-6 rounded-lg">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold text-twitch">Technology Strategy Senior Associate</h3>
+                            <p class="text-gray-600">PricewaterhouseCoopers (PwC)</p>
+                        </div>
+                        <span class="text-gray-500">January 2023 – Present</span>
+                    </div>
+                    <ul class="mt-4 space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Led product strategy for Quote-to-Cash technology transformation at F500 telecom client
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Developed NLP MVP and managed LLM solution for contract analysis
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Owned post-M&A integration program management for ~$1B telecom acquisition
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="experience-card bg-white p-6 rounded-lg">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold text-twitch">Cloud & Digital Strategy Associate</h3>
+                            <p class="text-gray-600">PricewaterhouseCoopers (PwC)</p>
+                        </div>
+                        <span class="text-gray-500">August 2021 – December 2022</span>
+                    </div>
+                    <ul class="mt-4 space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Led future of work assessment for F100 tech corporation
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Owned development of web applications for $17M program
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-twitch mr-2">•</span>
+                            Created employee experience strategy through stakeholder research
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Outside Work Section -->
-    <section id="outside-work" class="py-16 bg-white">
+    <section id="outside-work" class="py-16">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center">Outside Work</h2>
             <div class="carousel relative max-w-4xl mx-auto">
@@ -196,62 +124,6 @@
         </div>
     </section>
 
-    <script>
-        // Typing Animation
-        const phrases = ['a tinkerer', 'an engineer', 'a consultant', 'an aspiring entrepreneur'];
-        let currentPhraseIndex = 0;
-        const typedText = document.getElementById('typed-text');
-
-        async function typePhrase(phrase) {
-            for (let i = 0; i <= phrase.length; i++) {
-                typedText.textContent = phrase.substring(0, i);
-                await new Promise(resolve => setTimeout(resolve, 100));
-            }
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            for (let i = phrase.length; i >= 0; i--) {
-                typedText.textContent = phrase.substring(0, i);
-                await new Promise(resolve => setTimeout(resolve, 50));
-            }
-        }
-
-        async function animateTyping() {
-            while (true) {
-                await typePhrase(phrases[currentPhraseIndex]);
-                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-            }
-        }
-
-        // Carousel functionality
-        const carousel = document.querySelector('.carousel-inner');
-        const items = document.querySelectorAll('.carousel-item');
-        let currentIndex = 0;
-
-        document.querySelector('.carousel-button.next').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % items.length;
-            updateCarousel();
-        });
-
-        document.querySelector('.carousel-button.prev').addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
-            updateCarousel();
-        });
-
-        function updateCarousel() {
-            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-
-        // Start animations
-        animateTyping();
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
