@@ -43,20 +43,25 @@ function prevSlide() {
 }
 
 function startAutoRotate() {
-    autoRotateInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    if (autoRotateInterval) clearInterval(autoRotateInterval);
+    autoRotateInterval = setInterval(nextSlide, 5000);
 }
 
 function stopAutoRotate() {
-    clearInterval(autoRotateInterval);
+    if (autoRotateInterval) {
+        clearInterval(autoRotateInterval);
+    }
 }
 
-document.querySelector('.carousel-button.next').addEventListener('click', () => {
+document.querySelector('.carousel-button.next').addEventListener('click', (e) => {
+    e.preventDefault();
     stopAutoRotate();
     nextSlide();
     startAutoRotate();
 });
 
-document.querySelector('.carousel-button.prev').addEventListener('click', () => {
+document.querySelector('.carousel-button.prev').addEventListener('click', (e) => {
+    e.preventDefault();
     stopAutoRotate();
     prevSlide();
     startAutoRotate();
