@@ -149,6 +149,26 @@ body {
     margin: 0 auto;
 }
 
+/* Cards */
+.experience-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* Projects Section */
 .project-section-wrapper {
     display: flex;
@@ -158,31 +178,22 @@ body {
 
 .current-and-future {
     display: grid;
+    grid-template-columns: 1fr;
     gap: 3rem;
 }
 
 .project-backlog {
+    margin-top: 2rem;
+}
+
+.project-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    padding: 1.5rem 0;
 }
 
-.project-backlog .card {
-    min-height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.past-projects {
-    margin-top: 4rem;
-}
-
-.past-projects .project-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+.project-backlog .project-cards {
+    margin-top: 2rem;
 }
 
 .active-project {
@@ -199,20 +210,16 @@ body {
     padding: 2px 15px;
     border-radius: 12px;
     font-size: 0.8rem;
-    color: var(--text-light);
 }
 
-/* Cards */
-.card {
-    background: var(--bg-card);
-    padding: 2rem;
-    border-radius: 15px;
-    transition: transform 0.3s, box-shadow 0.3s;
+.past-projects {
+    margin-top: 4rem;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.past-projects h3,
+.project-backlog h3 {
+    color: var(--text-gray);
+    margin-bottom: 2rem;
 }
 
 /* Skills */
@@ -240,7 +247,6 @@ body {
     padding: 1rem 2rem;
     border-radius: 25px;
     transition: all 0.3s;
-    margin: 0;
 }
 
 .skill-pill:hover {
@@ -350,22 +356,8 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .current-and-future {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-backlog,
-    .past-projects .project-cards {
-        overflow-x: auto;
-        grid-template-columns: repeat(3, 300px);
-        scroll-snap-type: x mandatory;
-        padding: 1rem;
-        gap: 1.5rem;
-    }
-    
-    .project-backlog .card,
-    .past-projects .card {
-        scroll-snap-align: start;
+    .project-cards {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -384,9 +376,8 @@ body {
         padding: 1.5rem;
     }
     
-    .project-backlog,
-    .past-projects .project-cards {
-        grid-template-columns: repeat(2, 280px);
+    .project-cards {
+        grid-template-columns: 1fr;
     }
     
     .skill-pills {
@@ -395,12 +386,5 @@ body {
     
     .skill-pill {
         padding: 0.75rem 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .project-backlog,
-    .past-projects .project-cards {
-        grid-template-columns: repeat(1, 280px);
     }
 }
