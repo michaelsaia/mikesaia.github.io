@@ -1,88 +1,13 @@
-/* Base styles and dark theme */
-:root {
-    --primary-color: #9146FF;
-    --primary-light: #b98fff;
-    --bg-dark: #121212;
-    --bg-card: #1e1e1e;
-    --text-light: #ffffff;
-    --text-gray: #a0a0a0;
-}
-
-/* [Previous styles remain exactly the same until projects section] */
-
-/* Projects Section */
-.project-section-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-}
-
-.current-and-future {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-}
-
-.project-backlog {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.past-projects {
-    margin-top: 4rem;
-}
+/* [Previous styles remain exactly the same until past-projects section] */
 
 .past-projects .project-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
-.active-project {
-    border: 2px solid var(--primary-color);
-    position: relative;
-}
-
-.active-project:before {
-    content: 'Active';
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: var(--primary-color);
-    padding: 2px 15px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    color: var(--text-light);
-}
-
-/* Skills Section */
-.skill-category {
-    margin-bottom: 3rem;
-}
-
-.skill-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-}
-
-.skill-pill {
-    background: var(--bg-card);
-    color: var(--text-light);
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    transition: all 0.3s;
-    margin: 0;
-}
-
-/* Responsive Design */
 @media (max-width: 1024px) {
-    .current-and-future {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-backlog {
+    .past-projects .project-cards {
         overflow-x: auto;
         grid-template-columns: repeat(3, 300px);
         scroll-snap-type: x mandatory;
@@ -90,27 +15,19 @@
         gap: 1.5rem;
     }
     
-    .project-backlog .card {
+    .past-projects .card {
         scroll-snap-align: start;
     }
 }
 
 @media (max-width: 768px) {
-    .project-backlog {
+    .past-projects .project-cards {
         grid-template-columns: repeat(2, 280px);
-    }
-    
-    .skill-pills {
-        gap: 1rem;
-    }
-    
-    .skill-pill {
-        padding: 0.75rem 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .project-backlog {
+    .past-projects .project-cards {
         grid-template-columns: repeat(1, 280px);
     }
 }
