@@ -3,230 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mike Saia</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <title>Michael Saia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-50">
-    <!-- Hero Section with enhanced blobs -->
-    <section class="hero-section text-center py-16 relative">
-        <div class="shape-blob one"></div>
-        <div class="shape-blob two"></div>
+<body>
+    <div class="blob-container">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
 
-        <div class="max-w-6xl mx-auto relative z-10">
-            <div class="profile-container">
-                <img src="images/profile.jpg" alt="Mike Saia" class="profile-pic">
-            </div>
-            
-            <h1 class="text-6xl font-bold mb-4">Mike Saia</h1>
-            <div class="social-icons flex justify-center gap-4 mb-4">
-                <a href="mailto:michaelsaia97@gmail.com" class="text-twitch hover:text-purple-700 transition-colors">
-                    <i class="fas fa-envelope text-2xl"></i>
+    <header class="header">
+        <div class="profile-section">
+            <img src="images/profile.jpg" alt="Michael Saia" class="profile-pic">
+            <h1>Michael Saia</h1>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/michael-saia/" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://linkedin.com/in/mikesaia" target="_blank" class="text-twitch hover:text-purple-700 transition-colors">
-                    <i class="fab fa-linkedin text-2xl"></i>
+                <a href="mailto:michaelsaia97@gmail.com" class="social-icon">
+                    <i class="fas fa-envelope"></i>
                 </a>
             </div>
-            <div id="typed-text" class="text-2xl text-gray-600 mb-12 min-h-[2em]">a tinkerer</div>
-            
-            <!-- Navigation Circles -->
-            <div class="nav-circles-container flex flex-wrap justify-center gap-8 mb-16">
-                <a href="#experience" class="nav-circle text-white">
-                    <i class="fas fa-briefcase text-3xl mb-2"></i>
-                    <span>Experience</span>
-                </a>
-                <a href="#skills" class="nav-circle text-white">
-                    <i class="fas fa-code text-3xl mb-2"></i>
-                    <span>Skills</span>
-                </a>
-                <a href="#projects" class="nav-circle text-white">
-                    <i class="fas fa-project-diagram text-3xl mb-2"></i>
-                    <span>Projects</span>
-                </a>
-                <a href="#outside-work" class="nav-circle text-white">
-                    <i class="fas fa-mountain text-3xl mb-2"></i>
-                    <span>Life</span>
-                </a>
+            <div class="typing-container">
+                <span id="typing-text"></span>
             </div>
         </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-16 bg-white relative">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">Experience</h2>
-            <div class="space-y-8">
-                <div class="experience-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="text-xl font-bold text-twitch">Technology Strategy Senior Associate</h3>
-                            <p class="text-gray-600">PricewaterhouseCoopers (PwC)</p>
-                        </div>
-                        <span class="text-gray-500">January 2023 – Present</span>
-                    </div>
-                    <ul class="mt-4 space-y-2 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="text-twitch mr-2">•</span>
-                            Led product strategy for Quote-to-Cash technology transformation
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-twitch mr-2">•</span>
-                            Developed NLP MVP for contract analysis
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-twitch mr-2">•</span>
-                            Managed post-M&A integration program
-                        </li>
-                    </ul>
+        <nav class="nav-circles">
+            <a href="#experience" class="nav-circle">
+                <i class="fas fa-briefcase"></i>
+                <span>Experience</span>
+            </a>
+            <a href="#projects" class="nav-circle">
+                <i class="fas fa-project-diagram"></i>
+                <span>Projects</span>
+            </a>
+            <a href="#skills" class="nav-circle">
+                <i class="fas fa-tools"></i>
+                <span>Skills</span>
+            </a>
+            <a href="#life" class="nav-circle">
+                <i class="fas fa-heart"></i>
+                <span>Life</span>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="experience" class="section">
+            <h2>Experience</h2>
+            <div class="experience-cards">
+                <div class="card">
+                    <h3>Technology Strategy Developer</h3>
+                    <p class="subtitle">Liberty Mutual Insurance</p>
+                    <p>Leading technical innovation and strategic initiatives across the enterprise. Developing cutting-edge solutions and driving digital transformation.</p>
                 </div>
-
-                <div class="experience-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="text-xl font-bold text-twitch">Cloud & Digital Strategy Associate</h3>
-                            <p class="text-gray-600">PricewaterhouseCoopers (PwC)</p>
-                        </div>
-                        <span class="text-gray-500">August 2021 – December 2022</span>
-                    </div>
-                    <ul class="mt-4 space-y-2 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="text-twitch mr-2">•</span>
-                            Led future of work assessment for F100 tech corporation
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-twitch mr-2">•</span>
-                            Developed web applications for $17M program
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-twitch mr-2">•</span>
-                            Created employee experience strategy
-                        </li>
-                    </ul>
+                <div class="card">
+                    <h3>Technical Product Manager</h3>
+                    <p class="subtitle">Liberty Mutual Insurance</p>
+                    <p>Managed development of enterprise-scale applications and platforms. Led agile teams and implemented innovative solutions.</p>
+                </div>
+                <div class="card">
+                    <h3>Software Engineer</h3>
+                    <p class="subtitle">Liberty Mutual Insurance</p>
+                    <p>Developed robust software solutions and contributed to critical infrastructure projects.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">Skills & Technologies</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="skill-pill p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-                    <h3 class="font-bold mb-2 text-twitch">Languages</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 rounded">Python</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded">SQL</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded">JavaScript</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded">Node.js</span>
-                    </div>
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="project-cards">
+                <div class="card">
+                    <h3>Enterprise Architecture</h3>
+                    <p>Designed and implemented scalable enterprise solutions impacting thousands of users.</p>
                 </div>
-                <div class="skill-pill p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-                    <h3 class="font-bold mb-2 text-twitch">Methodologies</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 rounded">Agile</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded">Product Strategy</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded">Data Analysis</span>
-                    </div>
+                <div class="card">
+                    <h3>Innovation Programs</h3>
+                    <p>Led technology innovation initiatives and mentored teams in adopting new technologies.</p>
                 </div>
-                <div class="skill-pill p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-                    <h3 class="font-bold mb-2 text-twitch">Software</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 rounded">AWS</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded">Tableau</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded">GitHub</span>
-                    </div>
-                </div>
-                <div class="skill-pill p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-                    <h3 class="font-bold mb-2 text-twitch">Certifications</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 rounded">ITIL v4</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded">Alteryx Core</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded">IDC Cloud</span>
-                    </div>
+                <div class="card">
+                    <h3>Digital Transformation</h3>
+                    <p>Spearheaded digital transformation projects improving operational efficiency.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">Projects</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-50 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                    <h3 class="text-xl font-bold text-twitch">Linkd Supply</h3>
-                    <p class="text-gray-600 mb-4">B2B Group Purchasing Platform</p>
-                    <ul class="list-disc list-inside text-gray-700">
-                        <li>Led product discovery with 100+ customer interviews</li>
-                        <li>Developed automated lead generation system</li>
-                        <li>Selected for Georgia Tech CREATE-X accelerator</li>
-                    </ul>
-                </div>
-                <div class="bg-gray-50 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                    <h3 class="text-xl font-bold text-twitch">UPS Self-Service Kiosk</h3>
-                    <p class="text-gray-600 mb-4">iOS Application Development</p>
-                    <ul class="list-disc list-inside text-gray-700">
-                        <li>Developed customer-facing iOS application</li>
-                        <li>Reduced proof of concept timeline by 66%</li>
-                        <li>Implemented identity authentication and parcel management</li>
-                    </ul>
-                </div>
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-pill">Technology Strategy</div>
+                <div class="skill-pill">Product Management</div>
+                <div class="skill-pill">Software Development</div>
+                <div class="skill-pill">Enterprise Architecture</div>
+                <div class="skill-pill">Agile Methodologies</div>
+                <div class="skill-pill">Innovation Leadership</div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Outside Work Section -->
-    <section id="outside-work" class="py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">Outside Work</h2>
-            <div class="carousel relative max-w-4xl mx-auto">
-                <div class="carousel-inner">
-                    <div class="carousel-item">
-                        <img src="images/skiing.jpg" alt="Skiing with friends" loading="lazy">
-                        <div class="carousel-caption">
-                            <p>Winter adventures with friends on the slopes</p>
-                        </div>
+        <section id="life" class="section">
+            <h2>Outside Work</h2>
+            <div class="carousel-container">
+                <button class="carousel-button prev">❮</button>
+                <div class="carousel">
+                    <div class="carousel-slide">
+                        <img src="images/skiing.jpg" alt="Skiing">
+                        <div class="carousel-caption">Adventure seeker on the slopes</div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="images/machu-picchu.jpg" alt="Machu Picchu" loading="lazy">
-                        <div class="carousel-caption">
-                            <p>Exploring the wonders of Machu Picchu</p>
-                        </div>
+                    <div class="carousel-slide">
+                        <img src="images/machu-picchu.jpg" alt="Machu Picchu">
+                        <div class="carousel-caption">Exploring wonders of the world</div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="images/marathon.jpg" alt="Marathon" loading="lazy">
-                        <div class="carousel-caption">
-                            <p>Celebrating post-marathon achievements</p>
-                        </div>
+                    <div class="carousel-slide">
+                        <img src="images/marathon.jpg" alt="Marathon">
+                        <div class="carousel-caption">Pushing limits in marathons</div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="images/friends.jpg" alt="Friends" loading="lazy">
-                        <div class="carousel-caption">
-                            <p>Creating memories with friends</p>
-                        </div>
+                    <div class="carousel-slide">
+                        <img src="images/friends.jpg" alt="Friends">
+                        <div class="carousel-caption">Creating memories with friends</div>
                     </div>
                 </div>
-                <button class="carousel-button prev" aria-label="Previous slide">&lt;</button>
-                <button class="carousel-button next" aria-label="Next slide">&gt;</button>
+                <button class="carousel-button next">❯</button>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 mt-16">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="mailto:michaelsaia97@gmail.com" class="hover:text-twitch transition-colors">
-                    <i class="fas fa-envelope text-xl"></i>
-                </a>
-                <a href="https://linkedin.com/in/mikesaia" target="_blank" class="hover:text-twitch transition-colors">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
-            </div>
-            <p>© 2024 Mike Saia. All rights reserved.</p>
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/michael-saia/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:michaelsaia97@gmail.com">
+                <i class="fas fa-envelope"></i>
+            </a>
         </div>
+        <p>&copy; 2024 Michael Saia. All rights reserved.</p>
     </footer>
 
     <script src="main.js"></script>
