@@ -1,75 +1,84 @@
 // Typing Animation
-const phrases = ['a tinkerer', 'an engineer', 'a consultant', 'an aspiring entrepreneur'];
-let currentPhraseIndex = 0;
-const typedText = document.getElementById('typed-text');
+const typingText = document.getElementById('typing-text');
+const words = ['a tinkerer', 'an engineer', 'a consultant', 'an aspiring entrepreneur'];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let isWaiting = false;
 
-async function typePhrase(phrase) {
-    for (let i = 0; i <= phrase.length; i++) {
-        typedText.textContent = phrase.substring(0, i);
-        await new Promise(resolve => setTimeout(resolve, 100));
+function type() {
+    const currentWord = words[wordIndex];
+    const shouldDelete = isDeleting && charIndex > 0;
+    const shouldWrite = !isDeleting && charIndex < currentWord.length;
+
+    if (shouldDelete) {
+        typingText.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+    } else if (shouldWrite) {
+        typingText.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+    } else if (!isWaiting) {
+        isWaiting = true;
+        setTimeout(() => {
+            isDeleting = !isDeleting;
+            if (!isDeleting) {
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+            isWaiting = false;
+        }, isDeleting ? 200 : 1000);
     }
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    for (let i = phrase.length; i >= 0; i--) {
-        typedText.textContent = phrase.substring(0, i);
-        await new Promise(resolve => setTimeout(resolve, 50));
-    }
+
+    setTimeout(type, isDeleting ? 100 : 200);
 }
 
-async function animateTyping() {
-    while (true) {
-        await typePhrase(phrases[currentPhraseIndex]);
-        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-    }
-}
+// Start typing animation
+type();
 
 // Carousel functionality
-const carousel = document.querySelector('.carousel-inner');
-const items = document.querySelectorAll('.carousel-item');
-let currentIndex = 0;
-let autoRotateInterval;
+const carousel = document.querySelector('.carousel');
+const slides = document.querySelectorAll('.carousel-slide');
+const prevButton = document.querySelector('.carousel-button.prev');
+const nextButton = document.querySelector('.carousel-button.next');
+let currentSlide = 0;
+let autoplayInterval;
 
 function updateCarousel() {
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    const offset = -currentSlide * 100;
+    carousel.style.transform = `translateX(${offset}%)`;
 }
 
 function nextSlide() {
-    currentIndex = (currentIndex + 1) % items.length;
+    currentSlide = (currentSlide + 1) % slides.length;
     updateCarousel();
 }
 
 function prevSlide() {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
     updateCarousel();
 }
 
-function startAutoRotate() {
-    if (autoRotateInterval) clearInterval(autoRotateInterval);
-    autoRotateInterval = setInterval(nextSlide, 5000);
-}
-
-function stopAutoRotate() {
-    if (autoRotateInterval) {
-        clearInterval(autoRotateInterval);
-    }
-}
-
-document.querySelector('.carousel-button.next').addEventListener('click', (e) => {
-    e.preventDefault();
-    stopAutoRotate();
+// Event listeners for buttons
+nextButton.addEventListener('click', () => {
     nextSlide();
-    startAutoRotate();
+    resetAutoplay();
 });
 
-document.querySelector('.carousel-button.prev').addEventListener('click', (e) => {
-    e.preventDefault();
-    stopAutoRotate();
+prevButton.addEventListener('click', () => {
     prevSlide();
-    startAutoRotate();
+    resetAutoplay();
 });
 
-// Start animations
-animateTyping();
-startAutoRotate();
+// Autoplay functionality
+function startAutoplay() {
+    autoplayInterval = setInterval(nextSlide, 5000);
+}
+
+function resetAutoplay() {
+    clearInterval(autoplayInterval);
+    startAutoplay();
+}
+
+startAutoplay();
 
 // Smooth scrolling for navigation
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
