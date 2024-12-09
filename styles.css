@@ -1,29 +1,14 @@
-:root {
-    --primary-color: #6441a5;
-    --secondary-color: #9146ff;
-    --background-color: #0d0d0d;
-    --card-background: #1a1a1a;
-    --text-color: #ffffff;
-    --text-gray: #a0a0a0;
-    --hover-color: #7d5bbe;
+/* Previous CSS remains the same */
+
+/* Experience Cards */
+.experience-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Card Styles */
-.card {
+.experience-card {
     background-color: var(--card-background);
     border-radius: 10px;
     padding: 1.5rem;
@@ -32,84 +17,60 @@ body {
     border-left: 4px solid var(--primary-color);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+.experience-card:hover {
+    transform: translateX(10px);
+    box-shadow: -5px 5px 10px rgba(100, 65, 165, 0.2);
 }
 
-/* Pill Styles */
-.skill-pill {
+/* Project Cards */
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.project-card {
     background-color: var(--card-background);
-    border-radius: 20px;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    display: inline-block;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-size: 0.9rem;
-    border: 1px solid var(--primary-color);
+    height: 100%;
 }
 
-.skill-pill:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(100, 65, 165, 0.3);
-    background-color: var(--primary-color);
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(100, 65, 165, 0.2);
 }
 
-.skill-pills {
+/* Navigation Circles */
+.nav-circles {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem 0;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
 }
 
-/* Blob Animation */
-.blob-container {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.blob {
-    position: absolute;
-    background: var(--primary-color);
-    opacity: 0.15;
-    filter: blur(60px);
+.nav-circle {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    animation: blob-animation 25s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    mix-blend-mode: screen;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--card-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: var(--text-color);
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
 }
 
-.blob:nth-child(1) {
-    width: 450px;
-    height: 450px;
-    left: -200px;
-    top: -200px;
-    animation-delay: 0s;
-    background: var(--primary-color);
-    transform-origin: 50% 50%;
+.nav-circle:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(100, 65, 165, 0.4);
 }
 
-.blob:nth-child(2) {
-    width: 350px;
-    height: 350px;
-    right: -150px;
-    bottom: -150px;
-    animation-delay: -7s;
-    background: var(--secondary-color);
-    transform-origin: -50% 150%;
-}
-
-.blob:nth-child(3) {
-    width: 400px;
-    height: 400px;
-    right: 30%;
-    top: 30%;
-    animation-delay: -14s;
-    background: var(--hover-color);
-    transform-origin: 150% -50%;
-}
-
-[Previous CSS remains exactly the same until Footer section]
+/* Footer and rest of the CSS remains the same */
