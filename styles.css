@@ -1,4 +1,132 @@
-/* Root Variables and Global Styles remain exactly the same */
+/* Root Variables */
+:root {
+    --primary-color: #9146FF;
+    --secondary-color: #6441a5;
+    --background: #121212;
+    --card-bg: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --hover-color: #7d5bbe;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header and Profile Styles */
+.header {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 6px solid var(--primary-color);
+    box-shadow: 0 0 30px rgba(145, 70, 255, 0.3);
+    margin: 0 auto 2rem;
+    object-fit: cover;
+    display: block;
+}
+
+.main-heading {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.social-icon {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--primary-color);
+}
+
+.typing-container {
+    margin: 1rem 0;
+}
+
+#typing-text {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    text-align: center;
+    min-height: 2em;
+    display: inline-block;
+}
+
+/* Navigation */
+.nav-circles {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: var(--text-primary);
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+}
+
+.nav-circle:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(145, 70, 255, 0.4);
+}
+
+.nav-circle i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.nav-circle span {
+    font-size: 0.8rem;
+    text-align: center;
+}
 
 /* Blobs */
 .blob-container {
@@ -54,8 +182,6 @@
     75% { transform: translate(-100px, 100px) rotate(270deg) scale(1.05); }
     100% { transform: translate(0, 0) rotate(360deg) scale(1); }
 }
-
-/* Header and Profile Styles remain exactly the same */
 
 /* Sections */
 .section {
