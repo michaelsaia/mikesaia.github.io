@@ -8,6 +8,40 @@
     --hover-color: #7d5bbe;
 }
 
+/* Bio Section */
+.bio-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--card-background);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    opacity: 0.9;
+}
+
+.bio-container:hover {
+    transform: translateY(-5px);
+    opacity: 1;
+}
+
+.bio-text {
+    color: var(--text-gray);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .bio-container {
+        margin: 1.5rem auto;
+        padding: 0.8rem;
+    }
+    .bio-text {
+        font-size: 1rem;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -91,52 +125,70 @@ body {
 
 /* Link styles */
 a {
-  /* Use your brand purple */
   color: var(--primary-color);
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease;
   font-weight: 500;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background: rgba(145, 70, 255, 0.1);
 }
 
-/* Underline animation on hover */
-a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background-color: var(--hover-color); /* Your green accent color */
-  transition: width 0.3s ease;
-}
-
+/* Basic link hover */
 a:hover {
+  background: rgba(145, 70, 255, 0.2);
   color: var(--hover-color);
 }
 
-a:hover::after {
-  width: 100%;
-}
-
-/* For links that are buttons or in cards */
+/* Card and button-style links */
 .card a, .button-link {
   padding: 0.5rem 1rem;
   border-radius: 6px;
   background: var(--primary-color);
   color: var(--text-primary);
   border: none;
+  display: inline-block; /* Ensures proper block formatting */
 }
 
+/* Card and button-style link hover effects */
 .card a:hover, .button-link:hover {
   background: var(--secondary-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(145, 70, 255, 0.2);
+  color: var(--text-primary);
 }
 
-/* Remove the underline animation for button-style links */
-.card a::after, .button-link::after {
-  display: none;
+/* Navigation links (if you have them) */
+nav a {
+  background: transparent;
+  padding: 0.5rem;
+}
+
+nav a:hover {
+  background: rgba(145, 70, 255, 0.1);
+}
+
+/* Social links (if you have them) */
+.social-links a {
+  background: transparent;
+  padding: 0.5rem;
+}
+
+.social-links a:hover {
+  background: rgba(145, 70, 255, 0.1);
+}
+
+/* Logo or header links */
+header a {
+  background: transparent;
+  padding: 0;
+}
+
+header a:hover {
+  background: transparent;
 }
 
 .profile-section {
