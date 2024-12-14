@@ -34,7 +34,7 @@ function type() {
 // Start typing animation
 type();
 
-// Carousel functionality
+// Image Carousel functionality
 const carousel = document.querySelector('.carousel');
 const slides = document.querySelectorAll('.carousel-slide');
 const prevButton = document.querySelector('.carousel-button.prev');
@@ -88,4 +88,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             behavior: 'smooth'
         });
     });
+});
+
+// Podcast Carousel functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const podcastUrls = [
+        'https://open.spotify.com/embed/episode/YOUR_PODCAST_ID_1',
+        'https://open.spotify.com/embed/episode/YOUR_PODCAST_ID_2',
+        'https://open.spotify.com/embed/episode/YOUR_PODCAST_ID_3'
+        // Add more podcast URLs as needed
+    ];
+    
+    let currentPodcastIndex = 0;
+    const podcastEmbed = document.querySelector('.podcast-embed iframe');
+    const podcastPrevButton = document.querySelector('.podcast-button.prev');
+    const podcastNextButton = document.querySelector('.podcast-button.next');
+
+    function updatePodcast() {
+        podcastEmbed.src = podcastUrls[currentPodcastIndex];
+    }
+
+    if (podcastPrevButton && podcastNextButton && podcastEmbed) {
+        podcastPrevButton.addEventListener('click', () => {
+            currentPodcastIndex = (currentPodcastIndex - 1 + podcastUrls.length) % podcastUrls.length;
+            updatePodcast();
+        });
+
+        podcastNextButton.addEventListener('click', () => {
+            currentPodcastIndex = (currentPodcastIndex + 1) % podcastUrls.length;
+            updatePodcast();
+        });
+    }
 });
