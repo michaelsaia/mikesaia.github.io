@@ -89,6 +89,56 @@ body {
     z-index: 1;
 }
 
+/* Link styles */
+a {
+  /* Use your brand purple */
+  color: var(--primary-color);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* Underline animation on hover */
+a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--hover-color); /* Your green accent color */
+  transition: width 0.3s ease;
+}
+
+a:hover {
+  color: var(--hover-color);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* For links that are buttons or in cards */
+.card a, .button-link {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: var(--primary-color);
+  color: var(--text-primary);
+  border: none;
+}
+
+.card a:hover, .button-link:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(145, 70, 255, 0.2);
+}
+
+/* Remove the underline animation for button-style links */
+.card a::after, .button-link::after {
+  display: none;
+}
+
 .profile-section {
     margin-bottom: 3rem;
 }
@@ -337,18 +387,28 @@ main {
 }
 
 .carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    text-align: center;
-    z-index: 2;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    white-space: nowrap;
+  /* Ensure text wraps */
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  /* Center the text */
+  text-align: center;
+
+  /* Add some padding and max-width */
+  padding: 0 1rem;
+  max-width: 100%;
+
+  /* Position absolutely within the carousel item */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  /* Match your theme's background for legibility */
+  background: rgba(22, 22, 26, 0.8); /* Semi-transparent version of your --background color */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .carousel-slide:hover::after,
