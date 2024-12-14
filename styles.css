@@ -8,9 +8,8 @@
     --hover-color: #7d5bbe;
 }
 
-/* [Previous CSS content remains exactly the same until the media queries] */
+/* [Previous CSS content remains exactly the same until media queries] */
 
-/* Responsive Design */
 @media (max-width: 1024px) {
     .project-backlog .project-cards,
     .past-projects .project-cards {
@@ -34,7 +33,7 @@
         height: 400px;
     }
 
-    /* Spotify Responsive Adjustments */
+    /* Spotify Responsive */
     .spotify-container {
         grid-template-columns: 1fr;
     }
@@ -44,6 +43,11 @@
         max-width: 600px;
         margin: 0 auto;
         width: 100%;
+    }
+
+    .spotify-embed,
+    .podcast-embed {
+        height: 350px;
     }
 }
 
@@ -65,7 +69,7 @@
         height: 350px;
     }
 
-    /* Spotify Responsive Adjustments */
+    /* Spotify Responsive */
     .spotify-embed,
     .podcast-embed {
         height: 300px;
@@ -106,7 +110,7 @@
         font-size: 2rem;
     }
 
-    /* Spotify Mobile Adjustments */
+    /* Spotify Mobile */
     .spotify-embed,
     .podcast-embed {
         height: 250px;
@@ -121,5 +125,10 @@
         width: 35px;
         height: 35px;
         font-size: 1.2rem;
+    }
+
+    .spotify-music,
+    .spotify-podcasts {
+        padding: 1rem;
     }
 }
