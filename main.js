@@ -92,31 +92,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Podcast Carousel functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const podcastUrls = [
-        'https://open.spotify.com/embed/episode/YOUR_PODCAST_ID_1',
-        'https://open.spotify.com/embed/episode/YOUR_PODCAST_ID_2',
-        'https://open.spotify.com/embed/episode/YOUR_PODCAST_ID_3'
-        // Add more podcast URLs as needed
-    ];
-    
+    const podcastEmbeds = document.querySelectorAll('.podcast-embed');
+    const podcastPrevButton = document.querySelector('.podcast-carousel .podcast-button.prev');
+    const podcastNextButton = document.querySelector('.podcast-carousel .podcast-button.next');
     let currentPodcastIndex = 0;
-    const podcastEmbed = document.querySelector('.podcast-embed iframe');
-    const podcastPrevButton = document.querySelector('.podcast-button.prev');
-    const podcastNextButton = document.querySelector('.podcast-button.next');
 
-    function updatePodcast() {
-        podcastEmbed.src = podcastUrls[currentPodcastIndex];
+    function showPodcast(index) {
+        podcastEmbeds.forEach((embed, i) => {
+            if (i === index) {
+                embed.style.display = 'block';
+            } else {
+                embed.style.display = 'none';
+            }
+        });
     }
 
-    if (podcastPrevButton && podcastNextButton && podcastEmbed) {
+    if (podcastPrevButton && podcastNextButton) {
         podcastPrevButton.addEventListener('click', () => {
-            currentPodcastIndex = (currentPodcastIndex - 1 + podcastUrls.length) % podcastUrls.length;
-            updatePodcast();
+            currentPodcastIndex = (currentPodcastIndex - 1 + podcastEmbeds.length) % podcastEmbeds.length;
+            showPodcast(currentPodcastIndex);
         });
 
         podcastNextButton.addEventListener('click', () => {
-            currentPodcastIndex = (currentPodcastIndex + 1) % podcastUrls.length;
-            updatePodcast();
+            currentPodcastIndex = (currentPodcastIndex + 1) % podcastEmbeds.length;
+            showPodcast(currentPodcastIndex);
         });
     }
+
+    // Show initial podcast
+    showPodcast(0);
 });
