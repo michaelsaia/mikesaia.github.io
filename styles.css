@@ -8,65 +8,296 @@
     --hover-color: #7d5bbe;
 }
 
-/* [Previous styles remain the same] */
-
-/* Spotify Section */
-.spotify-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 3rem;
-    position: relative;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.spotify-music,
-.spotify-podcasts {
-    background: var(--card-background);
-    border-radius: 15px;
-    padding: 1.5rem;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-section {
+    margin-bottom: 3rem;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 1rem;
     transition: transform 0.3s ease;
 }
 
-.spotify-music:hover,
-.spotify-podcasts:hover {
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.typing-container {
+    height: 1.5em;
+    margin-top: 1rem;
+    color: var(--text-gray);
+}
+
+/* Navigation */
+.nav-circles {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.nav-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
+
+.nav-circle i {
+    font-size: 1.5rem;
+    background: var(--card-background);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-circle:hover {
     transform: translateY(-5px);
 }
 
-.spotify-music h3,
-.spotify-podcasts h3 {
+.nav-circle:hover i {
+    background-color: var(--primary-color);
+}
+
+.nav-circle span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.section {
+    margin-bottom: 5rem;
+    scroll-margin-top: 2rem;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* Experience Cards */
+.experience-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
     color: var(--text-gray);
     margin-bottom: 1rem;
-    text-align: center;
+    font-size: 0.9rem;
 }
 
-.spotify-embed,
-.podcast-embed {
-    width: 100%;
-    height: 380px;
-    border-radius: 12px;
-    overflow: hidden;
+/* Projects Section */
+.project-section-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 }
 
-.podcast-embed {
-    display: none;
+.current-and-future {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
-.podcast-embed:first-child {
-    display: block;
-}
-
-.spotify-iframe {
-    border: none;
-    border-radius: 12px;
-    background: var(--background-color);
-}
-
-.podcast-carousel {
+.active-project {
+    border: 2px solid var(--primary-color);
     position: relative;
-    width: 100%;
-    height: 380px;
 }
 
+.active-project::before {
+    content: 'Active';
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--primary-color);
+    padding: 0.2rem 1rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+.project-backlog,
+.past-projects {
+    margin-top: 2rem;
+}
+
+.project-backlog .project-cards,
+.past-projects .project-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.project-backlog h3,
+.past-projects h3 {
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+}
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.skill-category h3 {
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+}
+
+.skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-pill {
+    background: var(--card-background);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin: 0.5rem;
+}
+
+.skill-pill:hover {
+    transform: translateY(-2px);
+    background-color: var(--primary-color);
+}
+
+/* Life Section */
+.carousel-container {
+    position: relative;
+    max-width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: var(--card-background);
+}
+
+.carousel {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.carousel-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 26, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.carousel-slide:hover::after,
+.carousel-slide:hover .carousel-caption {
+    opacity: 1;
+}
+
+.carousel-button,
 .podcast-button {
     position: absolute;
     top: 50%;
@@ -86,73 +317,15 @@
     z-index: 3;
 }
 
+.carousel-button:hover,
 .podcast-button:hover {
     background: rgba(0, 0, 0, 0.8);
 }
 
-.podcast-button.prev {
+.prev {
     left: 10px;
 }
 
-.podcast-button.next {
+.next {
     right: 10px;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .spotify-container {
-        grid-template-columns: 1fr;
-    }
-
-    .spotify-music,
-    .spotify-podcasts {
-        max-width: 600px;
-        margin: 0 auto;
-        width: 100%;
-    }
-
-    .spotify-embed,
-    .podcast-embed {
-        height: 350px;
-    }
-}
-
-@media (max-width: 768px) {
-    .spotify-embed,
-    .podcast-embed {
-        height: 300px;
-    }
-
-    .spotify-music,
-    .spotify-podcasts {
-        padding: 1rem;
-    }
-
-    .podcast-button {
-        width: 35px;
-        height: 35px;
-    }
-}
-
-@media (max-width: 480px) {
-    .spotify-embed,
-    .podcast-embed {
-        height: 250px;
-    }
-
-    .spotify-music h3,
-    .spotify-podcasts h3 {
-        font-size: 1.1rem;
-    }
-
-    .podcast-button {
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
-    }
-
-    .spotify-music,
-    .spotify-podcasts {
-        padding: 0.75rem;
-    }
 }
