@@ -356,7 +356,7 @@ main {
     opacity: 1;
 }
 
-.carousel-button {
+.carousel-button, .podcast-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -375,7 +375,7 @@ main {
     z-index: 3;
 }
 
-.carousel-button:hover {
+.carousel-button:hover, .podcast-button:hover {
     background: rgba(0, 0, 0, 0.8);
 }
 
