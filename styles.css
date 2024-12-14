@@ -1,86 +1,200 @@
-@media (max-width: 768px) {
-    .nav-circles {
-        gap: 1rem;
-    }
+:root {
+    --primary-color: #6441a5;
+    --secondary-color: #9146ff;
+    --background-color: #0d0d0d;
+    --card-background: #1a1a1a;
+    --text-color: #ffffff;
+    --text-gray: #a0a0a0;
+    --hover-color: #7d5bbe;
+}
 
-    .project-backlog .project-cards,
-    .past-projects .project-cards {
-        grid-template-columns: repeat(2, 280px);
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .experience-cards {
-        grid-template-columns: 1fr;
-    }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-    .carousel-container {
-        height: 350px;
-    }
+/* Blob Animation */
+.blob-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
 
-    /* Spotify Responsive */
-    .spotify-embed,
-    .podcast-embed {
-        height: 300px;
-    }
+.blob {
+    position: absolute;
+    background: var(--primary-color);
+    opacity: 0.3;
+    filter: blur(80px);
+    border-radius: 50%;
+    animation: blob-animation 20s infinite;
+}
 
-    .spotify-music,
-    .spotify-podcasts {
-        padding: 1rem;
-    }
+.blob:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    left: -200px;
+    top: -200px;
+    animation-delay: 0s;
+}
 
-    .podcast-button {
-        width: 35px;
-        height: 35px;
+.blob:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    right: -150px;
+    bottom: -150px;
+    animation-delay: -5s;
+    background: var(--secondary-color);
+}
+
+.blob:nth-child(3) {
+    width: 350px;
+    height: 350px;
+    right: 30%;
+    top: 30%;
+    animation-delay: -10s;
+    background: var(--hover-color);
+}
+
+@keyframes blob-animation {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(100px, 50px) scale(1.1);
+    }
+    50% {
+        transform: translate(50px, 100px) scale(0.9);
+    }
+    75% {
+        transform: translate(-50px, 50px) scale(1.05);
     }
 }
 
-@media (max-width: 480px) {
-    .nav-circle i {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
+/* Header Styles */
+.header {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
 
-    .project-backlog .project-cards,
-    .past-projects .project-cards {
-        grid-template-columns: repeat(1, 280px);
-    }
+.profile-section {
+    margin-bottom: 3rem;
+}
 
-    .skill-pills {
-        justify-content: center;
-    }
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
 
-    .carousel-container {
-        height: 300px;
-    }
+.profile-pic:hover {
+    transform: scale(1.05);
+}
 
-    .carousel-caption {
-        font-size: 1rem;
-        padding: 0.75rem 1.5rem;
-    }
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
 
-    h1 {
-        font-size: 2rem;
-    }
+.typing-container {
+    height: 1.5em;
+    margin-top: 1rem;
+    color: var(--text-gray);
+}
 
-    /* Spotify Mobile */
-    .spotify-embed,
-    .podcast-embed {
-        height: 250px;
-    }
+/* Navigation */
+.nav-circles {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
 
-    .spotify-music h3,
-    .spotify-podcasts h3 {
-        font-size: 1.1rem;
-    }
+.nav-circle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform 0.3s ease;
+}
 
-    .podcast-button {
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
-    }
+.nav-circle i {
+    font-size: 1.5rem;
+    background: var(--card-background);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s ease;
+}
 
-    .spotify-music,
-    .spotify-podcasts {
-        padding: 0.75rem;
-    }
+.nav-circle:hover {
+    transform: translateY(-5px);
+}
+
+.nav-circle:hover i {
+    background-color: var(--primary-color);
+}
+
+.nav-circle span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.section {
+    margin-bottom: 5rem;
+    scroll-margin-top: 2rem;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+/* Cards and Experience */
+.card {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.experience-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
