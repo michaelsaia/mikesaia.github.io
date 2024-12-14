@@ -8,7 +8,44 @@
     --hover-color: #7d5bbe;
 }
 
-/* [Previous CSS remains the same until the media queries] */
+/* [Previous CSS content remains exactly the same until the media queries] */
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .project-backlog .project-cards,
+    .past-projects .project-cards {
+        overflow-x: auto;
+        grid-template-columns: repeat(3, 300px);
+        scroll-snap-type: x mandatory;
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .project-backlog .card,
+    .past-projects .card {
+        scroll-snap-align: start;
+    }
+
+    .nav-circles {
+        flex-wrap: wrap;
+    }
+
+    .carousel-container {
+        height: 400px;
+    }
+
+    /* Spotify Responsive Adjustments */
+    .spotify-container {
+        grid-template-columns: 1fr;
+    }
+
+    .spotify-music,
+    .spotify-podcasts {
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
 
 @media (max-width: 768px) {
     .nav-circles {
