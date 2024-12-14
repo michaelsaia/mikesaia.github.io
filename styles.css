@@ -486,3 +486,91 @@ main {
         font-size: 2rem;
     }
 }
+
+/* Spotify Section */
+.spotify-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+}
+
+.spotify-music,
+.spotify-podcasts {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.spotify-music:hover,
+.spotify-podcasts:hover {
+    transform: translateY(-5px);
+}
+
+.spotify-music h3,
+.spotify-podcasts h3 {
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.spotify-embed,
+.podcast-embed {
+    width: 100%;
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    display: none;
+}
+
+.podcast-embed:first-child,
+.spotify-embed {
+    display: block;
+}
+
+.spotify-iframe {
+    border: none;
+    border-radius: 12px;
+    background: var(--background-color);
+}
+
+.podcast-carousel {
+    position: relative;
+    width: 100%;
+    height: 380px;
+}
+
+/* Add to your existing media queries */
+@media (max-width: 1024px) {
+    .spotify-container {
+        grid-template-columns: 1fr;
+    }
+
+    .spotify-music,
+    .spotify-podcasts {
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .spotify-embed,
+    .podcast-embed {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .spotify-embed,
+    .podcast-embed {
+        height: 250px;
+    }
+
+    .spotify-music h3,
+    .spotify-podcasts h3 {
+        font-size: 1.1rem;
+    }
+}

@@ -89,3 +89,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+// Podcast Carousel functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const podcastEmbeds = document.querySelectorAll('.podcast-embed');
+    const podcastPrevButton = document.querySelector('.podcast-carousel .podcast-button.prev');
+    const podcastNextButton = document.querySelector('.podcast-carousel .podcast-button.next');
+    let currentPodcastIndex = 0;
+
+    function showPodcast(index) {
+        podcastEmbeds.forEach((embed, i) => {
+            if (i === index) {
+                embed.style.display = 'block';
+            } else {
+                embed.style.display = 'none';
+            }
+        });
+    }
+
+    if (podcastPrevButton && podcastNextButton) {
+        podcastPrevButton.addEventListener('click', () => {
+            currentPodcastIndex = (currentPodcastIndex - 1 + podcastEmbeds.length) % podcastEmbeds.length;
+            showPodcast(currentPodcastIndex);
+        });
+
+        podcastNextButton.addEventListener('click', () => {
+            currentPodcastIndex = (currentPodcastIndex + 1) % podcastEmbeds.length;
+            showPodcast(currentPodcastIndex);
+        });
+    }
+
+    // Show initial podcast
+    showPodcast(0);
+});
