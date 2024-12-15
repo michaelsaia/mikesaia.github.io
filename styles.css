@@ -130,8 +130,8 @@ a {
   position: relative;
   transition: all 0.3s ease;
   font-weight: 500;
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
+  padding: 0.1rem 0.3rem;  /* Reduced padding */
+  border-radius: 3px;      /* Smaller radius */
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   background: rgba(145, 70, 255, 0.1);
@@ -145,23 +145,24 @@ a:hover {
 
 /* Card and button-style links */
 .card a, .button-link {
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  background: var(--primary-color);
-  color: var(--text-primary);
-  border: none;
-  display: inline-block; /* Ensures proper block formatting */
+    padding: 0.3rem 0.8rem; /* Reduced padding */
+    border-radius: 4px; /* Reduced radius */
+    background: var(--primary-color);
+    color: var(--text-primary);
+    border: none;
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 /* Card and button-style link hover effects */
 .card a:hover, .button-link:hover {
-  background: var(--secondary-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(145, 70, 255, 0.2);
-  color: var(--text-primary);
+    background: var(--secondary-color);
+    transform: scale(1.1); /* 10% increase on hover */
+    box-shadow: 0 2px 4px rgba(145, 70, 255, 0.2);
+    color: var(--text-primary);
 }
 
-/* Navigation links (if you have them) */
+/* Navigation links */
 nav a {
   background: transparent;
   padding: 0.5rem;
@@ -171,7 +172,7 @@ nav a:hover {
   background: rgba(145, 70, 255, 0.1);
 }
 
-/* Social links (if you have them) */
+/* Social links */
 .social-links a {
   background: transparent;
   padding: 0.5rem;
@@ -426,46 +427,35 @@ main {
     transition: transform 0.3s ease;
 }
 
-.carousel-slide::after {
-    content: '';
+.carousel-caption {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(26, 26, 26, 0.7);
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 13, 13, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
     opacity: 0;
     transition: opacity 0.3s ease;
+    color: var(--text-color);
 }
 
-.carousel-caption {
-  /* Ensure text wraps */
-  white-space: normal;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-
-  /* Center the text */
-  text-align: center;
-
-  /* Add some padding and max-width */
-  padding: 0 1rem;
-  max-width: 100%;
-
-  /* Position absolutely within the carousel item */
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  /* Match your theme's background for legibility */
-  background: rgba(22, 22, 26, 0.8); /* Semi-transparent version of your --background color */
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+/* Show caption on hover for non-touch devices */
+@media (hover: hover) {
+    .carousel-slide:hover .carousel-caption {
+        opacity: 1;
+    }
 }
 
-.carousel-slide:hover::after,
-.carousel-slide:hover .carousel-caption {
-    opacity: 1;
+/* Mobile touch support */
+@media (hover: none) {
+    .carousel-caption.active {
+        opacity: 1;
+    }
 }
 
 .carousel-button, .podcast-button {
@@ -514,15 +504,26 @@ main {
     margin-bottom: 1rem;
 }
 
+/* Social icon styling */
 .social-icon {
     color: var(--text-color);
     font-size: 1.5rem;
     transition: color 0.3s ease;
     text-decoration: none;
+    background: transparent !important; /* Override any background */
+    padding: 0.5rem;
+}
+
+.social-icon i {
+    transition: color 0.3s ease;
 }
 
 .social-icon:hover {
-    color: var(--primary-color);
+    background: transparent !important; /* Ensure no background on hover */
+}
+
+.social-icon:hover i {
+    color: var(--secondary-color); /* Apply color change only to the icon */
 }
 
 /* Responsive Design */

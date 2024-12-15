@@ -122,3 +122,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show initial podcast
     showPodcast(0);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselSlides = document.querySelectorAll('.carousel-slide');
+
+    carouselSlides.forEach(slide => {
+        const caption = slide.querySelector('.carousel-caption');
+
+        slide.addEventListener('click', (e) => {
+            // Prevent this click from triggering any parent handlers
+            e.stopPropagation();
+
+            // Remove active class from all other captions
+            document.querySelectorAll('.carousel-caption').forEach(cap => {
+                if (cap !== caption) {
+                    cap.classList.remove('active');
+                }
+            });
+
+            // Toggle the active class on the clicked caption
+            caption.classList.toggle('active');
+        });
+    });
+
+    // Close caption when clicking outside
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.carousel-caption').forEach(caption => {
+            caption.classList.remove('active');
+        });
+    });
+});
