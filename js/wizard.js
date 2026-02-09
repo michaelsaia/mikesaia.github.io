@@ -31,7 +31,7 @@ class WizardGuide {
             { id: 'future-ideas', text: "Vote on what Mike should build next! These are mainly web or mobile projects, but Mike wants to explore the desktop form factor and embedded computing here soon." },
             { id: 'ai-journey', text: "Mike has been super invested in the frontier of AI development since Oct 2024. Quite the journey from copy-paste to Claude Code." },
             { id: 'journey', text: "The professional path. Georgia Tech to PwC to Palo Alto Networks." },
-            { id: 'experience', text: "Mike loves identifying problems his teams or clients face and leading the build out of creative solutions with his team to solve them." },
+            { id: 'experience', text: "Mike's a builder who leads teams. Technical enough for engineers, clear enough for executives. That's his superpower." },
             { id: 'skills', text: "And here are all the tools he's picked up along the way." },
             { id: 'adventures', text: "Not all strategy decks and terminals though. Mike's got an opinionated music taste, likes to get out of the country, always has a podcast on, and pre-ACL tear he was a bit of a runner" },
             { id: 'photos', text: "Some highlights from the adventures. Tap the photos for captions!" },
@@ -237,4 +237,29 @@ window.WizardGuide = WizardGuide;
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     window.wizardGuide = new WizardGuide();
+
+    // Mobile welcome dialog - show on first visit for mobile users
+    const isMobile = window.innerWidth <= 768;
+    const hasSeenWelcome = localStorage.getItem('mikesaia_mobile_welcome_seen');
+    const welcomeOverlay = document.getElementById('mobile-welcome');
+    const welcomeDismiss = document.getElementById('welcome-dismiss');
+
+    if (isMobile && !hasSeenWelcome && welcomeOverlay) {
+        welcomeOverlay.classList.add('visible');
+
+        if (welcomeDismiss) {
+            welcomeDismiss.addEventListener('click', () => {
+                welcomeOverlay.classList.remove('visible');
+                localStorage.setItem('mikesaia_mobile_welcome_seen', 'true');
+            });
+        }
+
+        // Also dismiss on overlay click (outside dialog)
+        welcomeOverlay.addEventListener('click', (e) => {
+            if (e.target === welcomeOverlay) {
+                welcomeOverlay.classList.remove('visible');
+                localStorage.setItem('mikesaia_mobile_welcome_seen', 'true');
+            }
+        });
+    }
 });

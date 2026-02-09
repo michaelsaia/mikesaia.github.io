@@ -355,6 +355,14 @@ body {
     font-size: 1rem;
 }
 
+.bio-note {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-top: 1rem;
+    opacity: 0.8;
+}
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -407,6 +415,121 @@ body {
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(5px); }
+}
+
+/* ============ Mobile Welcome Dialog ============ */
+.mobile-welcome-overlay {
+    display: none; /* Hidden by default, shown via JS on mobile */
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+
+.mobile-welcome-overlay.visible {
+    display: flex;
+}
+
+.mobile-welcome-dialog {
+    background: var(--card-solid);
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--pixel-border), 0 0 30px rgba(32, 178, 170, 0.3);
+    border-radius: 4px;
+    max-width: 340px;
+    width: 100%;
+    padding: 0;
+    animation: dialog-appear 0.3s ease-out;
+    overflow: hidden;
+}
+
+@keyframes dialog-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.welcome-wizard {
+    background: linear-gradient(135deg, rgba(32, 178, 170, 0.2), rgba(60, 179, 113, 0.2));
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.welcome-wizard-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 15px rgba(32, 178, 170, 0.6));
+    animation: wizard-float 3s ease-in-out infinite;
+}
+
+@keyframes wizard-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.welcome-content {
+    padding: 1.25rem;
+}
+
+.welcome-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.65rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+}
+
+.welcome-subtext {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-gray);
+    font-style: italic;
+}
+
+.welcome-dismiss {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color);
+    border: none;
+    border-top: 2px solid var(--primary-color);
+    color: var(--background-color);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.welcome-dismiss:hover {
+    background: var(--hover-color);
+}
+
+.welcome-dismiss:active {
+    transform: scale(0.98);
+}
+
+.dismiss-icon {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 /* ============ Wizard Container ============ */
