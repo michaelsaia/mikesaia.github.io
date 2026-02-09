@@ -17,13 +17,15 @@ class WizardGuide {
 
         // Scroll targets with their dialogues
         // Each target is an element ID that triggers a specific message
+        // ORDER MATTERS - must match DOM order for proper scroll triggering
         this.scrollTargets = [
             { id: 'home', text: "Welcome to Mike's corner of the internet. I'm his Excel Wizard (corny I know) and I'm excited to show you around." },
             { id: 'builds', text: "This is where the magic happens. Mike's always building something." },
             { id: 'yoked-card', text: "Yoked is his latest - an AI fitness app. He uses it himself - the gains are... in progress." },
             { id: 'other-projects', text: "More projects here - PT Portal for personal trainers, and Bops for music discovery (still a concept for now)." },
-            { id: 'ai-journey', text: "Mike has been super invested in the frontier of AI development since Oct 2023. Quite the journey from copy-paste to Claude Code." },
+            { id: 'mini-projects', text: "Some fun side projects - a gender reveal betting pool and a fantasy football draft assistant powered by Claude." },
             { id: 'future-ideas', text: "Vote on what Mike should build next! These are mainly web or mobile projects, but Mike wants to explore the desktop form factor and embedded computing here soon." },
+            { id: 'ai-journey', text: "Mike has been super invested in the frontier of AI development since Oct 2023. Quite the journey from copy-paste to Claude Code." },
             { id: 'journey', text: "The professional path. Georgia Tech to PwC to Palo Alto Networks." },
             { id: 'experience', text: "Mike loves identifying problems his teams or clients face and leading the build out of creative solutions with his team to solve them." },
             { id: 'skills', text: "And here are all the tools he's picked up along the way." },

@@ -1652,6 +1652,19 @@ a:hover {
     }
 }
 
+/* ============ Hide Wizard on Mobile ============ */
+@media (max-width: 768px) {
+    #wizard-container {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
 /* ============ Mobile Specific (480px and below) ============ */
 @media (max-width: 480px) {
     .pixel-title {
