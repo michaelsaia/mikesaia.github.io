@@ -1663,6 +1663,73 @@ a:hover {
         height: 0 !important;
         overflow: hidden !important;
     }
+
+    /* Nav Map Mobile Fixes */
+    .nav-toggle {
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .nav-map {
+        z-index: 9999;
+    }
+
+    .nav-map-wrapper {
+        height: 120px;
+    }
+
+    .nav-hotspot {
+        /* Better touch targets */
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(32, 178, 170, 0.3);
+        min-height: 100%;
+    }
+
+    /* Always show labels on mobile since no hover */
+    .nav-hotspot::after {
+        opacity: 0.9;
+        font-size: 0.5rem;
+        padding: 0.2rem 0.4rem;
+        top: 0.25rem;
+    }
+
+    .nav-hotspot.active::after {
+        opacity: 1;
+        background: var(--primary-color);
+        color: var(--background-color);
+    }
+
+    .nav-wizard {
+        width: 48px;
+        height: 48px;
+        bottom: 10%;
+    }
+
+    .nav-wizard::before {
+        inset: -15px;
+    }
+
+    .nav-close {
+        width: 40px;
+        height: 40px;
+        top: 0.25rem;
+        right: 0.25rem;
+        font-size: 1.25rem;
+    }
+
+    /* Improve snap scroll on mobile */
+    .section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+
+    /* Ensure sections don't overflow */
+    .section-content {
+        padding-bottom: 100px; /* Space for nav toggle */
+    }
 }
 
 /* ============ Mobile Specific (480px and below) ============ */

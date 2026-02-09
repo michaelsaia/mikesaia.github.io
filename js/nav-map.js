@@ -43,18 +43,24 @@ class NavMapController {
     setupToggle() {
         // Open nav when clicking toggle button
         if (this.navToggle) {
-            this.navToggle.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent document click from firing
+            const handleOpen = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 this.openNav();
-            });
+            };
+            this.navToggle.addEventListener('click', handleOpen);
+            this.navToggle.addEventListener('touchend', handleOpen, { passive: false });
         }
 
         // Close nav when clicking X button
         if (this.navClose) {
-            this.navClose.addEventListener('click', (e) => {
+            const handleClose = (e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 this.closeNav();
-            });
+            };
+            this.navClose.addEventListener('click', handleClose);
+            this.navClose.addEventListener('touchend', handleClose, { passive: false });
         }
 
         // Close on escape key
@@ -113,13 +119,19 @@ class NavMapController {
      */
     setupHotspots() {
         this.navHotspots.forEach(hotspot => {
-            hotspot.addEventListener('click', (e) => {
+            // Handle both click and touch for better mobile support
+            const handleNavigation = (e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 const sectionId = hotspot.dataset.section;
                 this.navigateToSection(sectionId);
                 // Close the nav after clicking
                 setTimeout(() => this.closeNav(), 300);
-            });
+            };
+
+            hotspot.addEventListener('click', handleNavigation);
+            // Add touchend for iOS which can be finicky with click events
+            hotspot.addEventListener('touchend', handleNavigation, { passive: false });
         });
     }
 

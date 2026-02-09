@@ -14,6 +14,9 @@ class WizardGuide {
         this.typewriterTimeout = null;
         this.isMinimized = false;
         this.currentTarget = null;
+        this.currentTargetIndex = 0;
+        this.isMobile = window.innerWidth <= 768;
+        this.isManualNavigation = false; // Flag to ignore observer during arrow clicks
 
         // Scroll targets with their dialogues
         // Each target is an element ID that triggers a specific message
@@ -22,10 +25,11 @@ class WizardGuide {
             { id: 'home', text: "Welcome to Mike's corner of the internet. I'm his Excel Wizard (corny I know) and I'm excited to show you around." },
             { id: 'builds', text: "This is where the magic happens. Mike's always building something." },
             { id: 'yoked-card', text: "Yoked is his latest - an AI fitness app. He uses it himself - the gains are... in progress." },
-            { id: 'other-projects', text: "More projects here - PT Portal for personal trainers, and Bops for music discovery (still a concept for now)." },
+            { id: 'pt-portal-card', text: "PT Portal is a full CRM for personal trainers. Scheduling, payments, AI workout generation - the works. Real trainers are using it now." },
+            { id: 'bops-card', text: "Bops is still a concept - think Reddit meets Spotify for music discovery. Your taste earns you karma." },
             { id: 'mini-projects', text: "Some fun side projects - a gender reveal betting pool and a fantasy football draft assistant powered by Claude." },
             { id: 'future-ideas', text: "Vote on what Mike should build next! These are mainly web or mobile projects, but Mike wants to explore the desktop form factor and embedded computing here soon." },
-            { id: 'ai-journey', text: "Mike has been super invested in the frontier of AI development since Oct 2023. Quite the journey from copy-paste to Claude Code." },
+            { id: 'ai-journey', text: "Mike has been super invested in the frontier of AI development since Oct 2024. Quite the journey from copy-paste to Claude Code." },
             { id: 'journey', text: "The professional path. Georgia Tech to PwC to Palo Alto Networks." },
             { id: 'experience', text: "Mike loves identifying problems his teams or clients face and leading the build out of creative solutions with his team to solve them." },
             { id: 'skills', text: "And here are all the tools he's picked up along the way." },
@@ -78,20 +82,29 @@ class WizardGuide {
     setupScrollObservers() {
         const options = {
             root: null,
-            rootMargin: '-30% 0px -50% 0px', // Trigger when element is in center-ish area
+            rootMargin: '-30% 0px -50% 0px',
             threshold: 0
         };
 
         const observer = new IntersectionObserver((entries) => {
+            // Ignore observer during manual arrow navigation
+            if (this.isManualNavigation || this.isMinimized) return;
+
             entries.forEach(entry => {
-                if (entry.isIntersecting && !this.isMinimized) {
+                if (entry.isIntersecting) {
                     const targetId = entry.target.id;
                     const target = this.scrollTargets.find(t => t.id === targetId);
+
                     if (target && this.currentTarget !== targetId) {
                         this.currentTarget = targetId;
-                        this.showDialogue(target.text);
+                        this.currentTargetIndex = this.scrollTargets.findIndex(t => t.id === targetId);
 
-                        // Update current section for nav
+                        // Only show dialogues on desktop, not mobile
+                        if (!this.isMobile) {
+                            this.showDialogue(target.text);
+                        }
+
+                        // Always update current section for nav (mobile + desktop)
                         if (this.sections.includes(targetId)) {
                             this.currentSection = targetId;
                         }
@@ -150,18 +163,35 @@ class WizardGuide {
     }
 
     goToNextTarget() {
-        // Find current target index
-        const currentIndex = this.scrollTargets.findIndex(t => t.id === this.currentTarget);
-        const nextIndex = (currentIndex + 1) % this.scrollTargets.length;
-        const nextTarget = this.scrollTargets[nextIndex];
+        // Block observer from interfering during manual navigation
+        this.isManualNavigation = true;
 
+        // Advance to next target in sequence
+        this.currentTargetIndex = (this.currentTargetIndex + 1) % this.scrollTargets.length;
+        const nextTarget = this.scrollTargets[this.currentTargetIndex];
+
+        // Update state and show dialogue directly
+        this.currentTarget = nextTarget.id;
+        this.showDialogue(nextTarget.text);
+
+        // Update current section for nav
+        if (this.sections.includes(nextTarget.id)) {
+            this.currentSection = nextTarget.id;
+        }
+
+        // Scroll to the top of the element
         const element = document.getElementById(nextTarget.id);
         if (element) {
             element.scrollIntoView({
                 behavior: 'smooth',
-                block: 'center'
+                block: 'start'
             });
         }
+
+        // Re-enable observer after scroll animation completes
+        setTimeout(() => {
+            this.isManualNavigation = false;
+        }, 1000);
     }
 
     dismissWizard() {
