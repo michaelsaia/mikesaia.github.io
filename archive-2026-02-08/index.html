@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike Saia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="favicon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="blob-container">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
+    <header class="header">
+        <div class="profile-section">
+            <img src="images/profile.jpg" alt="Mike Saia" class="profile-pic">
+            <h1>Mike Saia</h1>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mike-saia/" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:michaelsaia97@gmail.com" class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://calendly.com/michaelsaia97/30min" target="_blank" class="social-icon">
+                    <i class="fa-solid fa-calendar"></i>
+                </a>
+            </div>
+            <div class="typing-container">
+                <span id="typing-text"></span>
+            </div>
+        </div>
+        <nav class="nav-circles">
+            <a href="#experience" class="nav-circle">
+                <i class="fas fa-briefcase"></i>
+                <span>Experience</span>
+            </a>
+            <a href="#projects" class="nav-circle">
+                <i class="fas fa-project-diagram"></i>
+                <span>Projects</span>
+            </a>
+            <a href="#skills" class="nav-circle">
+                <i class="fas fa-tools"></i>
+                <span>Skills</span>
+            </a>
+            <a href="#life" class="nav-circle">
+                <i class="fas fa-heart"></i>
+                <span>Life</span>
+            </a>
+        </nav>
+        <div class="bio-container">
+            <p class="bio-text">
+                Technical Business Consultant at Palo Alto Networks. Georgia Tech alum living in NYC. Obsessed with AI-enabled development and building apps that solve real problems. Love talking tech, economics, indie & house music, and Saints football.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <section id="experience" class="section">
+            <h2>Experience</h2>
+            <div class="experience-cards">
+                <div class="card">
+                    <h3>Technical Business Consultant</h3>
+                    <p class="subtitle">Palo Alto Networks</p>
+                    <p class="subtitle"><em>July 2025 to Present</em></p>
+                    <p>Joining the GTM team to drive technical strategy and AI-powered solutions at scale.<br><br>
+                      <li>Building an AI-powered resource allocation platform serving 40K+ requests across 2,000+ resources</li>
+                      <li>Developing AI workflows for technical designs enabling 1,500+ sellers to deliver faster, more accurate solutions</li>
+                      <li>Owning the tool roadmap for the global technical organization</li>
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Technology Strategy Senior Associate</h3>
+                    <p class="subtitle">PricewaterhouseCoopers (PwC)</p>
+                    <p class="subtitle"><em>January 2023 to July 2025</em></p>
+                    <p> As a Senior, I focused on executing major tech initiatives - from launching new products to managing $10M+ programs. I built processes from the ground up for financial and resource management, developed business & technical requirements for enterprise systems, and handled everything from UAT testing to production support.<br><br> Some of my proudest moments came from solving problems nobody asked me to fix:<br><br>
+                      <li>Our client needed to align a new acquisition with enterprise tech ops and cybersecurity standards but lacked implementation guidance. After spending weeks on discovery with app owners and security leads, I built an automated onboarding survey that triggered Jira workflows and assigned compliance tasks to the right teams. The client was so impressed they locked us in for their next acquisition integration, securing a $1M+ deal.</li>
+                      <li>Our client's Quote-to-Cash implementation was losing customers due to a messy email-based escalation process. I took the initiative to build an automated intake system using PowerAutomate and Python that pinged relevant business and engineering teams via chat, tracked approvals, and maintained a prioritized backlog. The tool has processed 800+ escalations to date and helped retain $10M+ in at-risk recurring revenue.</li>
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Cloud & Digital Strategy Associate</h3>
+                    <p class="subtitle">PricewaterhouseCoopers (PwC)</p>
+                    <p class="subtitle"><em>August 2021 to January 2023</em></p>
+                    <p>As an associate, I dug into assessment work across Tech, Financial Services, and Telecom industries. Some key projects included: <br><br>
+                      <li>A large creative technology company’s approach to “return to office” after covid, answering questions like “How do you enable employees to collaborate effectively when have the team is in office and the other half is working remotely?”, “How do we make the technology experience for team members returning to the office as easy as possible?”</li>
+                      <li>A large payment processor’s approach to future proofing their employee onboarding and directory services whose growth strategy was inorganic, acquisition based (i.e. their tech stack was full of totally disparate unintegrated tech from prior acquisitions)</li>
+                      <li>PwC’s approach to designing an outsourcing strategy for a massive financial services engagement that included talent from 4 continents, while optimizing for skillsets across geographies, ensuring compliance with client requirements, and ensuring profitability of the engagement.</li><br><br>
+                      <strong>I was promoted in only a year and a half to senior associate!</strong>
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Software Engineer Contractor - Advanced Technology</h3>
+                    <p class="subtitle">Software Engineer</p>
+                    <p class="subtitle"><em>March 2021 to July 2021</em></p>
+                    <p>After graduating in fall 2020 and taking a 2-month siesta to snowboard all of the mountains on the IKON pass out west with friends, it looked like I wouldn’t have much on my plate for a few months prior to my August 2021 start date at PwC. Instead, I took the opportunity to learn and found a contractor / intern role at the advanced technology group at UPS as a Software Engineer. The 5 months I spent at ATG prior to joining PwC I was able to work on some awesome tech:     <br><br>
+                      <li>I developed a PoC for a self-service package inventory iOS application that serves both location administrators and end customers using the OutSystems platform. The self-service UPS kiosk locations you see today began with that PoC!</li>
+                      <li>I built a new system for tracking and maintaining reference to UPS’ patents! Julio, the stakeholder I was working with held 20+ patents of his own.</li>
+                      <li>I was able to explore Waymo’s autonomous driving APIs and propose use cases to UPS R&D for an Autonomous Package Delivery Proof of Concept!</li>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="project-section-wrapper">
+                <!-- Featured Projects -->
+                <div class="featured-projects">
+                    <h3>Featured Projects</h3>
+                    <div class="featured-cards">
+                        <div class="featured-card card">
+                            <div class="featured-badge">Beta</div>
+                            <h3>Yoked</h3>
+                            <p class="featured-tagline">AI-powered fitness programming</p>
+                            <div class="project-media">
+                                <div class="video-placeholder" data-video="yoked">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Demo coming soon</span>
+                                </div>
+                            </div>
+                            <p>An iOS app that uses AI to generate personalized workout programs based on your goals, equipment, and experience level. Features real-time streaming program generation, week-by-week program tracking, and a community for discovering public programs.</p>
+                            <a href="https://yoked.fitness" target="_blank" class="project-link">yoked.fitness →</a>
+                        </div>
+                        <div class="featured-card card">
+                            <div class="featured-badge">Beta</div>
+                            <h3>PT Portal</h3>
+                            <p class="featured-tagline">CRM for personal trainers</p>
+                            <div class="project-media">
+                                <div class="video-placeholder" data-video="ptportal">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Demo coming soon</span>
+                                </div>
+                            </div>
+                            <p>A comprehensive platform for personal trainers to manage clients, generate AI-powered workouts, assign programs, track client progress, and handle payments via Stripe integration. Currently in beta with real trainers.</p>
+                        </div>
+                        <div class="featured-card card">
+                            <div class="featured-badge">Prototype</div>
+                            <h3>Bops</h3>
+                            <p class="featured-tagline">Music discovery & taste credentialing</p>
+                            <div class="project-media">
+                                <div class="figma-embed">
+                                    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FxRGGsKYL4AwYZqvWyHCMKC%2FBops%3Fnode-id%3D1-2%26starting-point-node-id%3D1%253A2" allowfullscreen loading="lazy"></iframe>
+                                </div>
+                            </div>
+                            <p>A mix of Beli, Reddit, and Instagram for music and podcasts. Share media you love, save recommendations directly to Spotify, and earn karma when others save your recommendations. Figma prototype above!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Development Journey Timeline -->
+                <div class="ai-journey">
+                    <h3>My AI Development Journey</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content card">
+                                <h4>Phase 1: The Copy/Paste Era</h4>
+                                <p class="timeline-date">October 2024</p>
+                                <p>Started with Claude 3.5 Sonnet copy/paste workflow. Learning basic prompt engineering, iterating on outputs manually, and understanding how to communicate with LLMs effectively.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content card">
+                                <h4>Phase 1.5: First MCP Experiments</h4>
+                                <p class="timeline-date">November 2024</p>
+                                <p>Started adding MCPs to Claude right after release. GitHub MCP was my first (initially ignored it, steep learning curve). Learning MCP architecture and tool integration basics.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content card">
+                                <h4>Phase 2: IDE Integration Era</h4>
+                                <p class="timeline-date">January - December 2025</p>
+                                <p>Transitioned to Cursor/Windsurf. Added Supabase MCP and Figma MCP. Learned code modularity for context windows and scalability patterns. Many failed projects, but each taught valuable lessons.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content card">
+                                <h4>Phase 3: Claude Code Era</h4>
+                                <p class="timeline-date">January 2026 - Present</p>
+                                <p>Shipped both Yoked and PT Portal to beta. Using iOS MCP for rapid visual feedback on mobile development. Full agentic workflows, advanced MCP orchestration. Welcome to <a href="https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04" target="_blank">Gas Town</a>.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker future"></div>
+                            <div class="timeline-content card">
+                                <h4>Looking Forward</h4>
+                                <p class="timeline-date">The Future</p>
+                                <p>Thoughts on OpenClaw, MoltBot, Clawdbot, and where AI-enabled development is heading. More reflections coming soon...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini Projects -->
+                <div class="mini-projects">
+                    <h3>Mini Projects</h3>
+                    <div class="project-cards">
+                        <div class="card mini-card">
+                            <h3><i class="fas fa-baby"></i> Gender Reveal Betting Pool</h3>
+                            <p>A Google Apps Script web app for friends and family to place bets on baby gender reveals. Automated tracking, leaderboard, and payout calculations.</p>
+                        </div>
+                        <div class="card mini-card">
+                            <h3><i class="fas fa-football-ball"></i> Fantasy Football Draft AI Parser</h3>
+                            <p>AI-powered tool that parses draft picks from chat/text and automatically updates a shared draft board. Built for my fantasy league.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Future Ideas with Upvoting -->
+                <div class="future-ideas">
+                    <h3>Future Ideas</h3>
+                    <p class="future-ideas-subtitle">Vote for what I should build next!</p>
+                    <div class="project-cards">
+                        <div class="card idea-card" data-idea-id="college-ai">
+                            <h3>Agentic AI for College Consulting</h3>
+                            <p>Think Crimson College Consulting, but more accessible and always available. LLM-powered platform to guide high school students in university selection and financial aid applications.</p>
+                            <button class="upvote-btn" onclick="upvoteIdea('college-ai')">
+                                <i class="fas fa-arrow-up"></i>
+                                <span class="vote-count" id="votes-college-ai">0</span>
+                            </button>
+                        </div>
+                        <div class="card idea-card" data-idea-id="infrastructure">
+                            <h3>Crowdsourced Public Development</h3>
+                            <p>An app enabling citizens to report infrastructure damage for government renovation work prioritization.</p>
+                            <button class="upvote-btn" onclick="upvoteIdea('infrastructure')">
+                                <i class="fas fa-arrow-up"></i>
+                                <span class="vote-count" id="votes-infrastructure">0</span>
+                            </button>
+                        </div>
+                        <div class="card idea-card" data-idea-id="sop-llm">
+                            <h3>LLM-enabled SOP Updates</h3>
+                            <p>Automating natural gas compliance work by fine-tuning foundational LLMs to update Standard Operating Procedures based on changes to the Code of Federal Regulation.</p>
+                            <button class="upvote-btn" onclick="upvoteIdea('sop-llm')">
+                                <i class="fas fa-arrow-up"></i>
+                                <span class="vote-count" id="votes-sop-llm">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Past Projects -->
+                <div class="past-projects">
+                    <h3>Past Projects</h3>
+                    <div class="project-cards">
+                        <div class="card">
+                            <h3>Linkd Supply</h3>
+                            <p>Co-founded B2B group purchasing platform. Led product discovery through 100+ customer interviews, developed automated lead generation system, and participated in Georgia Tech CREATE-X accelerator. Here was a <a href="https://youtu.be/AmwKX-DUvw4" target="_blank">preview video</a> my co-founders and I made in college explaining the concept.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Climate Impact Reporting for UPS</h3>
+                            <p>As a part of my senior design for graduation from Georgia Tech, I built out an Alteryx analytical app that standardized emissions reporting against all UPS subsidiaries and delivered the total climate impact in a single CSV file. See a UX demo of the app <a href="https://youtu.be/Fill6d_MorU" target="_blank">here</a></p>
+                        </div>
+                        <div class="card">
+                            <h3>This site!</h3>
+                            <p>I built this site from scratch and am hosting it on GitHub Pages. Check out the repo <a href="https://github.com/mikesaia/mikesaia.github.io" target="_blank">here</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages & Frameworks</h3>
+                    <div class="skill-pills">
+                        <div class="skill-pill">Python</div>
+                        <div class="skill-pill">TypeScript</div>
+                        <div class="skill-pill">JavaScript / Node.js</div>
+                        <div class="skill-pill">SQL</div>
+                        <div class="skill-pill">React / React Native</div>
+                        <div class="skill-pill">Django</div>
+                        <div class="skill-pill">FastAPI</div>
+                        <div class="skill-pill">Expo</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Methodologies</h3>
+                    <div class="skill-pills">
+                        <div class="skill-pill">Agile Program Management</div>
+                        <div class="skill-pill">Product Management</div>
+                        <div class="skill-pill">Product Strategy</div>
+                        <div class="skill-pill">Prompt Engineering</div>
+                        <div class="skill-pill">User Research</div>
+                        <div class="skill-pill">Data Analysis</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Software & Tools</h3>
+                    <div class="skill-pills">
+                        <div class="skill-pill">Claude Code</div>
+                        <div class="skill-pill">Claude MCP</div>
+                        <div class="skill-pill">Cursor / Windsurf</div>
+                        <div class="skill-pill">Figma</div>
+                        <div class="skill-pill">Linear</div>
+                        <div class="skill-pill">GitHub</div>
+                        <div class="skill-pill">Supabase</div>
+                        <div class="skill-pill">AWS</div>
+                        <div class="skill-pill">GCP</div>
+                        <div class="skill-pill">Jira</div>
+                        <div class="skill-pill">Tableau</div>
+                        <div class="skill-pill">Power Automate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="life" class="section">
+            <h2>Outside Work</h2>
+            <div class="carousel-container">
+                <button class="carousel-button prev">❮</button>
+                <div class="carousel">
+                    <div class="carousel-slide">
+                        <img src="images/skiing.jpg" alt="Skiing">
+                        <div class="carousel-caption">I spent 3 months after graduation with some of my best friends snowboarding out of a van in the rockies</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/machu-picchu.jpg" alt="Machu Picchu">
+                        <div class="carousel-caption">The culmination of the Salkantay trek in Peru took me to Machu Picchu in July 2024</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/marathon.jpg" alt="Marathon">
+                        <div class="carousel-caption">Ran my first marathon with buds in Chattanooga in October 2023</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/friends.jpg" alt="Friends">
+                        <div class="carousel-caption">My friends Chris and Jai with me at my favorite DJ's concert, Fred Again</div>
+                    </div>
+                </div>
+                <button class="carousel-button next">❯</button>
+            </div>
+            <!-- New Spotify Section -->
+            <div class="spotify-container">
+                <div class="spotify-music">
+                    <h3>The background to all my commutes...</h3>
+                    <div class="spotify-embed">
+                        <iframe
+                            src="https://open.spotify.com/embed/playlist/7jFOhYZMjGy8zNp4NToQei?utm_source=generator"
+                            width="100%"
+                            height="380"
+                            frameborder="0"
+                            allowtransparency="true"
+                            allow="encrypted-media"
+                            class="spotify-iframe"
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="spotify-podcasts">
+                    <h3>A few things I've been thinking about lately...</h3>
+                    <div class="podcast-carousel">
+                        <button class="podcast-button prev">❮</button>
+                        <div class="podcast-embed">
+                            <iframe
+                                src="https://open.spotify.com/embed/episode/2kgCdk80WcEsuSkA288QEm?utm_source=generator"
+                                width="100%"
+                                height="380"
+                                frameborder="0"
+                                allowtransparency="true"
+                                allow="encrypted-media"
+                                class="spotify-iframe"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="podcast-embed">
+                            <iframe
+                                src="https://open.spotify.com/embed/episode/6nJwfjrv8oxVzr50WmWHv8?utm_source=generator"
+                                width="100%"
+                                height="380"
+                                frameborder="0"
+                                allowtransparency="true"
+                                allow="encrypted-media"
+                                class="spotify-iframe"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="podcast-embed">
+                            <iframe
+                                src="https://open.spotify.com/embed/episode/7KBAv3ap4y3imrEjeD7hVr?utm_source=generator"
+                                width="100%"
+                                height="380"
+                                frameborder="0"
+                                allowtransparency="true"
+                                allow="encrypted-media"
+                                class="spotify-iframe"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <div class="podcast-embed">
+                            <iframe
+                                src="https://open.spotify.com/embed/episode/0ZHfHqsk6Pn78OWl65dgYt?utm_source=generator"
+                                width="100%"
+                                height="380"
+                                frameborder="0"
+                                allowtransparency="true"
+                                allow="encrypted-media"
+                                class="spotify-iframe"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                        <button class="podcast-button next">❯</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/mike-saia/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/mikesaia" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:michaelsaia97@gmail.com">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy; 2026 Michael Saia. All rights reserved.</p>
+    </footer>
+
+    <script src="particles.js"></script>
+    <script src="main.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>

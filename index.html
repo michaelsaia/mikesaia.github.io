@@ -2,202 +2,425 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Mike Saia</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="favicon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <div class="blob-container">
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
+    <!-- Fireflies Canvas (inserted by particles.js) -->
+
+    <!-- Wizard Character (Fixed Position - appears in dialogue) -->
+    <div id="wizard-container">
+        <div class="wizard-character" id="wizard">
+            <img src="images/wizard/excel-wizard.png" alt="Excel Wizard" class="wizard-sprite-img">
+        </div>
+        <div class="dialogue-box" id="dialogue-box">
+            <div class="dialogue-content">
+                <p id="dialogue-text"></p>
+            </div>
+            <button class="dialogue-advance" id="dialogue-advance" aria-label="Continue">
+                <span class="advance-arrow">▼</span>
+            </button>
+        </div>
     </div>
 
-    <header class="header">
-        <div class="profile-section">
-            <img src="images/profile.jpg" alt="Mike Saia" class="profile-pic">
-            <h1>Mike Saia</h1>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/mike-saia/" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:michaelsaia97@gmail.com" class="social-icon">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://calendly.com/michaelsaia97/30min" target="_blank" class="social-icon">
-                    <i class="fa-solid fa-calendar"></i>
-                </a>
-            </div>
-            <div class="typing-container">
-                <span id="typing-text"></span>
+    <!-- AI Chat Quick Access -->
+    <a href="#askme" class="chat-shortcut" id="chat-shortcut">
+        <i class="fas fa-magic"></i>
+        <span>Ask the Wizard</span>
+        <div class="chat-tooltip">
+            Chat with an AI that knows everything about Mike - his projects, experience, and skills. Get answers fast!
+        </div>
+    </a>
+
+    <!-- ==================== SECTION 1: HOME ==================== -->
+    <section id="home" class="section biome-section" data-wizard-dialogue="home" data-biome="nyc">
+        <div class="biome-overlay"></div>
+        <div class="section-content">
+            <div class="content-card hero-card">
+                <div class="character-portrait">
+                    <img src="images/profile.jpg" alt="Mike Saia" class="portrait-image">
+                    <div class="portrait-frame"></div>
+                </div>
+                <h1 class="pixel-title">MIKE SAIA</h1>
+                <div class="title-subtitle">
+                    <span class="stat-tag">Builder</span>
+                    <span class="stat-divider">|</span>
+                    <span class="stat-tag">Armchair Economist</span>
+                    <span class="stat-divider">|</span>
+                    <span class="stat-tag">Pixel Art Connoisseur</span>
+                </div>
+                <p class="bio-text">
+                    Georgia Tech alum living in NYC. Obsessed with AI-enabled development and building apps that solve real problems (currently addicted to Claude Code). Love talking tech, economics, indie & house music, and Saints football. Technical Business Consultant at Palo Alto Networks. 
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/mike-saia/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:michaelsaia97@gmail.com" class="social-icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://calendly.com/michaelsaia97/30min" target="_blank" class="social-icon" aria-label="Schedule">
+                        <i class="fa-solid fa-calendar"></i>
+                    </a>
+                    <a href="https://github.com/michaelsaia" target="_blank" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
             </div>
         </div>
-        <nav class="nav-circles">
-            <a href="#experience" class="nav-circle">
-                <i class="fas fa-briefcase"></i>
-                <span>Experience</span>
-            </a>
-            <a href="#projects" class="nav-circle">
-                <i class="fas fa-project-diagram"></i>
-                <span>Projects</span>
-            </a>
-            <a href="#skills" class="nav-circle">
-                <i class="fas fa-tools"></i>
-                <span>Skills</span>
-            </a>
-            <a href="#life" class="nav-circle">
-                <i class="fas fa-heart"></i>
-                <span>Life</span>
-            </a>
-        </nav>
-        <div class="bio-container">
-            <p class="bio-text">
-                I want to build things people use. Georgia Tech alum living in NYC. Love talking all things tech, economics, stats & prediction, Saints football, indie & house music, and storytelling.
-            </p>
+        <!-- Scroll prompt positioned at bottom of section, aligned with map toggle -->
+        <div class="scroll-prompt">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow">▼</div>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <section id="experience" class="section">
-            <h2>Experience</h2>
-            <div class="experience-cards">
-                <div class="card">
-                    <h3>Technology Strategy Senior Associate</h3>
-                    <p class="subtitle">PricewaterhouseCoopers (PwC)</p>
-                    <p class="subtitle"><em>January 2023 to Present</em></p>
-                    <p> As a Senior, I've been focused on executing major tech initiatives - from launching new products to managing $10M+ programs. I've built processes from the ground up for financial and resource management, developed business & technical requirements for enterprise systems, and handled everything from UAT testing to production support.<br><br> Some of my proudest moments came from solving problems nobody asked me to fix:<br><br>
-                      <li>Our client needed to align a new acquisition with enterprise tech ops and cybersecurity standards but lacked implementation guidance. After spending weeks on discovery with app owners and security leads, I built an automated onboarding survey that triggered Jira workflows and assigned compliance tasks to the right teams. The client was so impressed they locked us in for their next acquisition integration, securing a $1M+ deal.</li>
-                      <li>Our client's Quote-to-Cash implementation was losing customers due to a messy email-based escalation process. I took the initiative to build an automated intake system using PowerAutomate and Python that pinged relevant business and engineering teams via chat, tracked approvals, and maintained a prioritized backlog. The tool has processed 800+ escalations to date and helped retain $10M+ in at-risk recurring revenue.</li>
-                    </p>
+    <!-- ==================== SECTION 2: BUILDS ==================== -->
+    <section id="builds" class="section biome-section" data-wizard-dialogue="builds" data-biome="workshop">
+        <div class="biome-overlay"></div>
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="pixel-heading">Builds</h2>
+                <p class="section-subtitle">Projects & Creations</p>
+            </div>
+
+            <!-- Featured: YOKED -->
+            <div class="content-card featured-card" id="yoked-card">
+                <div class="card-header">
+                    <h3 class="card-title">Yoked</h3>
+                    <span class="project-badge beta">Public Beta</span>
                 </div>
-                <div class="card">
-                    <h3>Cloud & Digital Strategy Associate</h3>
-                    <p class="subtitle">PricewaterhouseCoopers (PwC)</p>
-                    <p class="subtitle"><em>August 2021 to January 2023</em></p>
-                    <p>As an associate, I dug into assessment work across Tech, Financial Services, and Telecom industries. Some key projects included: <br><br>
-                      <li>A large creative technology company’s approach to “return to office” after covid, answering questions like “How do you enable employees to collaborate effectively when have the team is in office and the other half is working remotely?”, “How do we make the technology experience for team members returning to the office as easy as possible?”</li>
-                      <li>A large payment processor’s approach to future proofing their employee onboarding and directory services whose growth strategy was inorganic, acquisition based (i.e. their tech stack was full of totally disparate unintegrated tech from prior acquisitions)</li>
-                      <li>PwC’s approach to designing an outsourcing strategy for a massive financial services engagement that included talent from 4 continents, while optimizing for skillsets across geographies, ensuring compliance with client requirements, and ensuring profitability of the engagement.</li><br><br>
-                      <strong>I was promoted in only a year and a half to senior associate!</strong>
-                    </p>
+                <p class="project-tagline">AI-powered fitness programming</p>
+                <div class="project-media">
+                    <div class="video-embed-vertical">
+                        <iframe
+                            src="https://www.youtube.com/embed/IcTs3_CvfnA"
+                            title="YOKED Demo"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Software Engineer Contractor - Advanced Technology</h3>
-                    <p class="subtitle">Software Engineer</p>
-                    <p class="subtitle"><em>March 2021 to July 2021</em></p>
-                    <p>After graduating in fall 2020 and taking a 2-month siesta to snowboard all of the mountains on the IKON pass out west with friends, it looked like I wouldn’t have much on my plate for a few months prior to my August 2021 start date at PwC. Instead, I took the opportunity to learn and found a contractor / intern role at the advanced technology group at UPS as a Software Engineer. The 5 months I spent at ATG prior to joining PwC I was able to work on some awesome tech:     <br><br>
-                      <li>I developed a PoC for a self-service package inventory iOS application that serves both location administrators and end customers using the OutSystems platform. The self-service UPS kiosk locations you see today began with that PoC!</li>
-                      <li>I built a new system for tracking and maintaining reference to UPS’ patents! Julio, the stakeholder I was working with held 20+ patents of his own.</li>
-                      <li>I was able to explore Waymo’s autonomous driving APIs and propose use cases to UPS R&D for an Autonomous Package Delivery Proof of Concept!</li>
-                    </p>
+                <p class="project-description">
+                    An iOS app that uses LLM enabled workflows to generate personalized workout programs based on your goals, equipment, and experience level. Features real-time streaming program generation, week-by-week program tracking, and a community for discovering public programs.
+                </p>
+                <a href="https://yoked.fitness" target="_blank" class="project-link">
+                    <span>yoked.fitness</span>
+                    <span class="link-arrow">→</span>
+                </a>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="other-projects">
+                <div class="content-card project-card">
+                    <span class="project-badge beta">Private Beta</span>
+                    <h3>PT Portal</h3>
+                    <p class="project-tagline">CRM for personal trainers</p>
+                    <div class="project-media">
+                        <div class="video-embed-vertical">
+                            <iframe
+                                src="https://www.youtube.com/embed/jW47DhURgqc"
+                                title="PT Portal Demo"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <p>A comprehensive platform for personal trainers to manage clients, generate AI-powered workouts, assign programs, track client progress, manage scheduling and handle payments via Stripe integration. Platform accommodates trainer and client personas. Currently in beta with real trainers.</p>
+                </div>
+
+                <div class="content-card project-card">
+                    <span class="project-badge prototype">Concept</span>
+                    <h3>Bops</h3>
+                    <p class="project-tagline">Music discovery & taste credentialing</p>
+                    <div class="project-media figma-embed-container">
+                        <iframe width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FDJis3gnKLPyye0xDlbFNFg%2FBops%3Fnode-id%3D3-57%26starting-point-node-id%3D3%253A57" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <p>A mix of Beli and Reddit for music and podcasts. Share media you love, save recommendations directly to Spotify, and earn karma when others save your recommendations.</p>
                 </div>
             </div>
-        </section>
 
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="project-section-wrapper">
-                <div class="current-and-future">
-                    <div class="active-project card">
-                        <h3>Current Project: Bops</h3>
-                        <p>Launching soon: A mix of Beli, Reddit, and Instagram for music and podcasts taste credentialing and discovery I've been working on. The app will allow you to share both music and podcast media you love with friends, save recommendations directly to your Spotify account, and receive karma for others saving your recommendations to their libraries. Currently, building in React & Django</p>
+            <!-- Mini Projects -->
+            <div class="mini-projects-section" id="mini-projects">
+                <h3 class="subsection-title">Mini Projects</h3>
+                <div class="mini-projects-grid">
+                    <div class="content-card mini-card">
+                        <a href="https://script.google.com/macros/s/AKfycbz7kIPaBmDYTffYXKYGZIVR4fdfhhP0q7dwzstomq7v58J03PU1kq0eWAV-IRwa9z0EIQ/exec" target="_blank" class="mini-card-image">
+                            <img src="images/mini/gender-reveal.png" alt="Gender Reveal Betting Pool">
+                        </a>
+                        <h4><i class="fas fa-baby"></i> Gender Reveal Betting Pool</h4>
+                        <p>A Google Apps Script web app for friends and family to place bets on baby gender reveals. Automated tracking, leaderboard, and payout calculations.</p>
                     </div>
-                    <div class="project-backlog">
-                        <h3>Future Projects</h3>
-                        <div class="project-cards">
-                            <div class="card">
-                                <h3>Agentic AI for College Consulting</h3>
-                                <p>Think Crimson College Consulting, but more accessible and always available. LLM-powered platform to guide high school students in university selection and financial aid applications.</p>
-                            </div>
-                            <div class="card">
-                                <h3>Crowdsourced Public Development Mobile App</h3>
-                                <p>An app enabling citizens to report infrastructure damage for government renovation work prioritization. I have actually begun building this out in <a href="https://flutterflow.io" target="_blank">Flutterflow</a></p>
-                            </div>
-                            <div class="card">
-                                <h3>LLM enabled SOP Updates</h3>
-                                <p>Automating natural gas compliance work by fine-tuning foundational LLMs to update Standard Operating Procedures based on changes to the Code of Federal Regulation.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="past-projects">
-                    <h3>Past Projects</h3>
-                    <div class="project-cards">
-                        <div class="card">
-                            <h3>Linkd Supply</h3>
-                            <p>Co-founded B2B group purchasing platform. Led product discovery through 100+ customer interviews, developed automated lead generation system, and participated in Georgia Tech CREATE-X accelerator. Here was a <a href="https://youtu.be/AmwKX-DUvw4" target="_blank">preview video</a> my co-founders and I made in college explaining the concept.</p>
-                        </div>
-                        <div class="card">
-                            <h3>Climate Impact Reporting for UPS</h3>
-                            <p>As a part of my senior design for graduation from Georgia Tech, I built out an Alteryx analytical app that standardized emissions reporting against all UPS subsisdiaries and delivered the total climate impact in a single CSV file. See a UX demo of the app <a href="https://youtu.be/Fill6d_MorU" target="_blank">here</a></p>
-                        </div>
-                        <div class="card">
-                            <h3>This site!</h3>
-                            <p>I built this site from scratch and am hosting it on github pages. Check out the repo <a href="https://github.com/michaelsaia/mikesaia.github.io" target="_blank">here</a>.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <div class="skill-pills">
-                        <div class="skill-pill">Python</div>
-                        <div class="skill-pill">SQL</div>
-                        <div class="skill-pill">JavaScript / Node.js</div>
-                        <div class="skill-pill">VBA</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Methodologies</h3>
-                    <div class="skill-pills">
-                        <div class="skill-pill">Agile Program Management</div>
-                        <div class="skill-pill">Product Management</div>
-                        <div class="skill-pill">Data Analysis</div>
-                        <div class="skill-pill">Product Strategy</div>
-                        <div class="skill-pill">Prompt Engineering</div>
-                        <div class="skill-pill">User Research</div>
-                        <div class="skill-pill">Financial Modeling</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Software</h3>
-                    <div class="skill-pills">
-                        <div class="skill-pill">Microsoft Office (Expert)</div>
-                        <div class="skill-pill">Tableau</div>
-                        <div class="skill-pill">Jira</div>
-                        <div class="skill-pill">OpenAI's ChatGPT & APIs</div>
-                        <div class="skill-pill">Anthropic's Claude, APIs, and Model Context Protocol</div>
-                        <div class="skill-pill">Github / Git bash</div>
-                        <div class="skill-pill">AWS</div>
-                        <div class="skill-pill">Smartsheet</div>
-                        <div class="skill-pill">Miro</div>
-                        <div class="skill-pill">Power Automate</div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Certifications</h3>
-                    <div class="skill-pills">
-                        <div class="skill-pill">ITIL v4 Foundation</div>
-                        <div class="skill-pill">Alteryx Core Certified</div>
-                        <div class="skill-pill">IDC Cloud Business Essentials</div>
+                    <div class="content-card mini-card">
+                        <a href="https://www.loom.com/share/c52c4564f714449aa57a9e2538e72dfa?sid=5a7dc365-22f0-4d6a-aacf-4b0b946b8023" target="_blank" class="mini-card-image">
+                            <img src="images/mini/fantasy-draft.png" alt="Fantasy Football Draft AI Parser">
+                        </a>
+                        <h4><i class="fas fa-football-ball"></i> Fantasy Football Draft AI Parser</h4>
+                        <p>A Claude-powered Google Apps Script that analyzes available players in real-time using <a href="https://docs.sleeper.com/" target="_blank">Sleeper's APIs</a> and updates a personal draft board. Click the image for a <a href="https://www.loom.com/share/c52c4564f714449aa57a9e2538e72dfa?sid=5a7dc365-22f0-4d6a-aacf-4b0b946b8023" target="_blank">demo</a>, or try it <a href="https://script.google.com/macros/s/AKfycbzX01CIFG4t2ju1s_DY3PpAqjp5MV8WsKnCtp7j6ktiVKpFZNjgyCiG7207dzO5KANs7w/exec" target="_blank">here</a>.</p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section id="life" class="section">
-            <h2>Outside Work</h2>
-            <div class="carousel-container">
-                <button class="carousel-button prev">❮</button>
+            <!-- Future Ideas -->
+            <div class="future-ideas-section" id="future-ideas">
+                <h3 class="subsection-title">Future Ideas</h3>
+                <p class="section-note">Vote for what I should build next!</p>
+                <div class="ideas-grid">
+                    <div class="content-card idea-card" data-idea-id="college-ai">
+                        <h4>Applying the PT Portal Scheduling + </h4>
+                        <p>Think Crimson College Consulting, but more accessible and always available. LLM-powered platform to guide high school students in university selection and financial aid applications.</p>
+                        <button class="upvote-btn" onclick="upvoteIdea('college-ai')">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="vote-count" id="votes-college-ai">0</span>
+                        </button>
+                    </div>
+                    <div class="content-card idea-card" data-idea-id="college-ai">
+                        <h4>Use Case Agnostic CRM, Scheduling, and Payments</h4>
+                        <p>I'm thinking about taking the PT portal concept and making it wholly configurable so you could pickup and start a CRM business for tutors, music teachers, or any service where virtual instruction alongside scheduling and payments woudl be required. Proabably has been tried, probably a tarpit, still interesting.</p>
+                        <button class="upvote-btn" onclick="upvoteIdea('college-ai')">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="vote-count" id="votes-college-ai">0</span>
+                        </button>
+                    </div>
+                    <div class="content-card idea-card" data-idea-id="college-ai">
+                        <h4>Show don't tell product feedback</h4>
+                        <p>Upload a PDF or screenshot of an area of your application where you'd like to receive feedback from non-technical business users. Allow an LLM to reproduce a wireframe of the application making all components on the page commentable. Reproduce that component and behavior on screen for the business user to sign off on. Receive acceptance and immediately translate this feedback into user stories (ulta precise, no ambiguity).</p>
+                        <button class="upvote-btn" onclick="upvoteIdea('college-ai')">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="vote-count" id="votes-college-ai">0</span>
+                        </button>
+                    </div>
+                    <div class="content-card idea-card" data-idea-id="infrastructure">
+                        <h4>Crowdsourced Public Development</h4>
+                        <p>An app enabling citizens to report infrastructure damage for government renovation work prioritization.</p>
+                        <button class="upvote-btn" onclick="upvoteIdea('infrastructure')">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="vote-count" id="votes-infrastructure">0</span>
+                        </button>
+                    </div>
+                    <div class="content-card idea-card" data-idea-id="sop-llm">
+                        <h4>LLM-enabled SOP Updates</h4>
+                        <p>Automating natural gas compliance work by fine-tuning foundational LLMs to update Standard Operating Procedures based on changes to the Code of Federal Regulation.</p>
+                        <button class="upvote-btn" onclick="upvoteIdea('sop-llm')">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="vote-count" id="votes-sop-llm">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Projects -->
+            <div class="past-projects-section">
+                <h3 class="subsection-title">Completed Projects</h3>
+                <div class="past-projects-grid">
+                    <div class="content-card past-card">
+                        <h4>Linkd Supply</h4>
+                        <p>Co-founded B2B group purchasing platform. Led product discovery through 100+ customer interviews, developed automated lead generation system, and participated in Georgia Tech CREATE-X accelerator. Here was a <a href="https://youtu.be/AmwKX-DUvw4" target="_blank">preview video</a> my co-founders and I made in college explaining the concept.</p>
+                    </div>
+                    <div class="content-card past-card">
+                        <h4>Climate Impact Reporting for UPS</h4>
+                        <p>As a part of my senior design for graduation from Georgia Tech, I built out an Alteryx analytical app that standardized emissions reporting against all UPS subsidiaries and delivered the total climate impact in a single CSV file. See a UX demo of the app <a href="https://youtu.be/Fill6d_MorU" target="_blank">here</a></p>
+                    </div>
+                    <div class="content-card past-card">
+                        <h4>This site!</h4>
+                        <p>I built this site from scratch and am hosting it on GitHub Pages. Check out the repo <a href="https://github.com/mikesaia/mikesaia.github.io" target="_blank">here</a>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Journey Timeline -->
+            <div class="content-card timeline-card" id="ai-journey">
+                <h3 class="subsection-title">My AI Development Journey</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Phase 1: The Copy/Paste Era</h4>
+                            <span class="timeline-date">October 2024</span>
+                            <p>Started with Claude 3.5 Sonnet copy/paste workflow. Learning basic prompt engineering, iterating on outputs manually, and understanding how to communicate with LLMs effectively. Writing 30% of my code.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Phase 1.5: First MCP Experiments</h4>
+                            <span class="timeline-date">November 2024</span>
+                            <p>Started adding MCPs to Claude right after release. GitHub MCP was my first. Began leveraging Claude for my CI/CD pipeline for personal projects.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Phase 2: IDE Integration Era</h4>
+                            <span class="timeline-date">January - December 2025</span>
+                            <p>Transitioned to Cursor/Windsurf. Added Supabase MCP and Figma MCP. Learned code modularity for context windows and scalability patterns. Many failed projects, but each taught valuable lessons. Writing 10% of my code manually.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Phase 3: Claude Code Era</h4>
+                            <span class="timeline-date">January 2026 - Present</span>
+                            <p>Shipped both Yoked and PT Portal to beta. Using iOS Simulatore MCP for rapid visual feedback on mobile development. Full agentic workflows, advanced MCP orchestration. Writing 0 lines of code manually. (if you've got the sharp eye to notice that little timezone bug in the demo, it has been fixed :) ).</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker future"></div>
+                        <div class="timeline-content">
+                            <h4>Looking Forward</h4>
+                            <span class="timeline-date">The Future</span>
+                            <p>Interested in exploring <a href="https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04" target="_blank">Gas Town</a> and finding a real compelling OpenClaw bot use case. I believe when combined orchestration platforms like OpenAI's Frontier / Gas Town alongside OpenClaw like agents running on their own machines could be extremely exciting as this allows for insane amounts of work to be done just on mobile without it needing to occur on device. Running this sort of setup not is prohibitively expesnive (as of Feb 2026) but the sheer chip and energy demand will create supply, people will innovate, and prices will come down. You hear about items like this on X and it is easy to believe everything digital will be solved quickly. From my experience leading large enterprise technology implementations, I think of the "the future is here, it's just not equally distributed" idiom. I believe enabling others to adopt these tools will be a massive opportunity over the next 5 - 10 years.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 3: JOURNEY ==================== -->
+    <section id="journey" class="section biome-section" data-wizard-dialogue="journey" data-biome="mountain">
+        <div class="biome-overlay"></div>
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="pixel-heading">Journey</h2>
+                <p class="section-subtitle">The Professional Path</p>
+            </div>
+
+            <div class="experience-stack" id="experience">
+                <div class="content-card experience-card">
+                    <div class="exp-header">
+                        <h3>Technical Business Consultant</h3>
+                        <span class="exp-company">Palo Alto Networks</span>
+                    </div>
+                    <span class="exp-date">July 2025 to Present</span>
+                    <div class="exp-content">
+                        <p>Joining the GTM team to drive technical strategy and AI-powered solutions at scale.</p>
+                        <ul class="exp-bullets">
+                            <li>Building an AI-powered resource allocation platform serving 40K+ requests across 2,000+ resources</li>
+                            <li>Developing AI workflows for technical designs enabling 1,500+ sellers to deliver faster, more accurate solutions</li>
+                            <li>Owning the tool roadmap for the global technical organization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-card experience-card">
+                    <div class="exp-header">
+                        <h3>Technology Strategy Senior Associate</h3>
+                        <span class="exp-company">PricewaterhouseCoopers (PwC)</span>
+                    </div>
+                    <span class="exp-date">January 2023 to July 2025</span>
+                    <div class="exp-content">
+                        <p>As a Senior, I focused on executing major tech initiatives - from launching new products to managing $10M+ programs. I built processes from the ground up for financial and resource management, developed business & technical requirements for enterprise systems, and handled everything from UAT testing to production support.</p>
+                        <p class="exp-highlight">Some of my proudest moments came from solving problems nobody asked me to fix:</p>
+                        <ul class="exp-bullets">
+                            <li>Our client needed to align a new acquisition with enterprise tech ops and cybersecurity standards but lacked implementation guidance. After spending weeks on discovery with app owners and security leads, I built an automated onboarding survey that triggered Jira workflows and assigned compliance tasks to the right teams. The client was so impressed they locked us in for their next acquisition integration, securing a $1M+ deal.</li>
+                            <li>Our client's Quote-to-Cash implementation was losing customers due to a messy email-based escalation process. I took the initiative to build an automated intake system using PowerAutomate and Python that pinged relevant business and engineering teams via chat, tracked approvals, and maintained a prioritized backlog. The tool has processed 800+ escalations to date and helped retain $10M+ in at-risk recurring revenue.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-card experience-card">
+                    <div class="exp-header">
+                        <h3>Cloud & Digital Strategy Associate</h3>
+                        <span class="exp-company">PricewaterhouseCoopers (PwC)</span>
+                    </div>
+                    <span class="exp-date">August 2021 to January 2023</span>
+                    <div class="exp-content">
+                        <p>As an associate, I dug into assessment work across Tech, Financial Services, and Telecom industries. Some key projects included:</p>
+                        <ul class="exp-bullets">
+                            <li>A large creative technology company's approach to "return to office" after covid, answering questions like "How do you enable employees to collaborate effectively when half the team is in office and the other half is working remotely?"</li>
+                            <li>A large payment processor's approach to future proofing their employee onboarding and directory services whose growth strategy was inorganic, acquisition based</li>
+                            <li>PwC's approach to designing an outsourcing strategy for a massive financial services engagement that included talent from 4 continents</li>
+                        </ul>
+                        <p class="exp-achievement"><strong>Promoted in only a year and a half to senior associate!</strong></p>
+                    </div>
+                </div>
+
+                <div class="content-card experience-card">
+                    <div class="exp-header">
+                        <h3>Software Engineer Contractor - Advanced Technology</h3>
+                        <span class="exp-company">UPS</span>
+                    </div>
+                    <span class="exp-date">March 2021 to July 2021</span>
+                    <div class="exp-content">
+                        <p>After graduating in fall 2020 and taking a 2-month siesta to snowboard all of the mountains on the IKON pass out west with friends, I found a contractor role at the advanced technology group at UPS.</p>
+                        <ul class="exp-bullets">
+                            <li>Developed a PoC for a self-service package inventory iOS application that serves both location administrators and end customers using the OutSystems platform. The self-service UPS kiosk locations you see today began with that PoC!</li>
+                            <li>Built a new system for tracking and maintaining reference to UPS' patents</li>
+                            <li>Explored Waymo's autonomous driving APIs and proposed use cases to UPS R&D for an Autonomous Package Delivery Proof of Concept</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="content-card skills-card" id="skills">
+                <h3 class="subsection-title">Skills & Tools</h3>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h4>Languages & Frameworks</h4>
+                        <div class="skill-pills">
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">TypeScript</span>
+                            <span class="skill-pill">JavaScript / Node.js</span>
+                            <span class="skill-pill">SQL</span>
+                            <span class="skill-pill">React / React Native</span>
+                            <span class="skill-pill">Django</span>
+                            <span class="skill-pill">FastAPI</span>
+                            <span class="skill-pill">Expo</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Methodologies</h4>
+                        <div class="skill-pills">
+                            <span class="skill-pill">Agile Program Management</span>
+                            <span class="skill-pill">Product Management</span>
+                            <span class="skill-pill">Product Strategy</span>
+                            <span class="skill-pill">Prompt Engineering</span>
+                            <span class="skill-pill">User Research</span>
+                            <span class="skill-pill">Data Analysis</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Software & Tools</h4>
+                        <div class="skill-pills">
+                            <span class="skill-pill">Claude Code</span>
+                            <span class="skill-pill">Claude MCP</span>
+                            <span class="skill-pill">Cursor / Windsurf</span>
+                            <span class="skill-pill">Figma</span>
+                            <span class="skill-pill">Linear</span>
+                            <span class="skill-pill">GitHub</span>
+                            <span class="skill-pill">Supabase</span>
+                            <span class="skill-pill">AWS</span>
+                            <span class="skill-pill">GCP</span>
+                            <span class="skill-pill">Jira</span>
+                            <span class="skill-pill">Tableau</span>
+                            <span class="skill-pill">Power Automate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 4: ADVENTURES ==================== -->
+    <section id="adventures" class="section biome-section" data-wizard-dialogue="adventures" data-biome="beach">
+        <div class="biome-overlay"></div>
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="pixel-heading">Adventures</h2>
+                <p class="section-subtitle">Life Outside the Terminal</p>
+            </div>
+
+            <!-- Photo Carousel -->
+            <div class="carousel-container" id="photos">
+                <button class="carousel-button prev" aria-label="Previous slide">❮</button>
                 <div class="carousel">
                     <div class="carousel-slide">
                         <img src="images/skiing.jpg" alt="Skiing">
@@ -216,11 +439,12 @@
                         <div class="carousel-caption">My friends Chris and Jai with me at my favorite DJ's concert, Fred Again</div>
                     </div>
                 </div>
-                <button class="carousel-button next">❯</button>
+                <button class="carousel-button next" aria-label="Next slide">❯</button>
             </div>
-            <!-- New Spotify Section -->
-            <div class="spotify-container">
-                <div class="spotify-music">
+
+            <!-- Spotify Section -->
+            <div class="spotify-section" id="music">
+                <div class="content-card spotify-music">
                     <h3>The background to all my commutes...</h3>
                     <div class="spotify-embed">
                         <iframe
@@ -235,10 +459,10 @@
                         </iframe>
                     </div>
                 </div>
-                <div class="spotify-podcasts">
+                <div class="content-card spotify-podcasts">
                     <h3>A few things I've been thinking about lately...</h3>
                     <div class="podcast-carousel">
-                        <button class="podcast-button prev">❮</button>
+                        <button class="podcast-button prev" aria-label="Previous podcast">❮</button>
                         <div class="podcast-embed">
                             <iframe
                                 src="https://open.spotify.com/embed/episode/2kgCdk80WcEsuSkA288QEm?utm_source=generator"
@@ -287,25 +511,97 @@
                                 loading="lazy">
                             </iframe>
                         </div>
-                        <button class="podcast-button next">❯</button>
+                        <button class="podcast-button next" aria-label="Next podcast">❯</button>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- ==================== SECTION 5: ASK ME ==================== -->
+    <section id="askme" class="section biome-section" data-wizard-dialogue="askme" data-biome="tower">
+        <div class="biome-overlay"></div>
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="pixel-heading">Ask Me</h2>
+                <p class="section-subtitle">Chat with the Excel Wizard</p>
+            </div>
+
+            <div class="oracle-container">
+                <div class="content-card oracle-box">
+                    <div class="oracle-portrait">
+                        <img src="images/wizard/excel-wizard.png" alt="Excel Wizard" class="wizard-avatar-img">
+                    </div>
+                    <div class="oracle-chat">
+                        <div class="oracle-messages" id="oracle-messages">
+                            <!-- Messages will be added dynamically -->
+                        </div>
+                        <div class="oracle-suggestions" id="oracle-suggestions">
+                            <button class="suggestion-btn" data-query="Tell me about Yoked">Tell me about Yoked</button>
+                            <button class="suggestion-btn" data-query="What's his experience?">His experience</button>
+                            <button class="suggestion-btn" data-query="How can I contact Mike?">Contact Mike</button>
+                            <button class="suggestion-btn" data-query="What are his skills?">His skills</button>
+                        </div>
+                        <div class="oracle-input-container">
+                            <span class="input-prompt">▶</span>
+                            <input type="text" id="oracle-input" placeholder="Ask the wizard..." autocomplete="off">
+                            <button class="send-btn" id="oracle-send" aria-label="Send">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <!-- Rate limit hidden but still tracked internally -->
+                        <span id="messages-remaining" style="display:none;">50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Navigation Toggle Button -->
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open map navigation">
+        <i class="fas fa-map"></i>
+    </button>
+
+    <!-- Map Navigation Accordion -->
+    <nav class="nav-map" id="nav-map">
+        <button class="nav-close" id="nav-close" aria-label="Close map">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="nav-map-wrapper">
+            <img src="images/nav/nav-img.jpeg" alt="Journey Map" class="nav-map-img">
+            <div class="nav-wizard" id="nav-wizard">
+                <img src="images/wizard/excel-wizard.png" alt="Wizard" class="nav-wizard-img">
+            </div>
+            <!-- Clickable hotspots positioned over landmarks -->
+            <button class="nav-hotspot" data-section="home" data-label="Home" aria-label="Go to Home"></button>
+            <button class="nav-hotspot" data-section="builds" data-label="Builds" aria-label="Go to Builds"></button>
+            <button class="nav-hotspot" data-section="journey" data-label="Journey" aria-label="Go to Journey"></button>
+            <button class="nav-hotspot" data-section="adventures" data-label="Adventures" aria-label="Go to Adventures"></button>
+            <button class="nav-hotspot" data-section="askme" data-label="Ask Me" aria-label="Go to Ask Me"></button>
+        </div>
+    </nav>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/mike-saia/" target="_blank">
+            <a href="https://www.linkedin.com/in/mike-saia/" target="_blank" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="mailto:michaelsaia97@gmail.com">
+            <a href="https://github.com/michaelsaia" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:michaelsaia97@gmail.com" aria-label="Email">
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
-        <p>&copy; 2024 Michael Saia. All rights reserved.</p>
+        <p>&copy; 2026 Michael Saia. All rights reserved.</p>
     </footer>
 
-    <script src="main.js"></script>
+    <!-- Scripts -->
+    <script src="particles.js"></script>
+    <script src="js/wizard.js"></script>
+    <script src="js/nav-map.js"></script>
+    <script src="js/journey.js"></script>
+    <script src="js/oracle.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 // Typing Animation
 const typingText = document.getElementById('typing-text');
-const words = ['a builder', 'a tinkerer', 'a consultant', 'an aspiring entrepreneur'];
+const words = ['a builder', 'an AI-enabled developer', 'an aspiring entrepreneur', 'a problem solver'];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -150,5 +150,102 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.carousel-caption').forEach(caption => {
             caption.classList.remove('active');
         });
+    });
+});
+
+// Project Idea Upvoting System
+// Uses localStorage to track votes per session
+
+const VOTES_STORAGE_KEY = 'mikesaia_idea_votes';
+const VOTED_IDEAS_KEY = 'mikesaia_voted_ideas';
+
+function getStoredVotes() {
+    try {
+        const stored = localStorage.getItem(VOTES_STORAGE_KEY);
+        return stored ? JSON.parse(stored) : {};
+    } catch {
+        return {};
+    }
+}
+
+function getVotedIdeas() {
+    try {
+        const stored = localStorage.getItem(VOTED_IDEAS_KEY);
+        return stored ? JSON.parse(stored) : [];
+    } catch {
+        return [];
+    }
+}
+
+function saveVotes(votes) {
+    try {
+        localStorage.setItem(VOTES_STORAGE_KEY, JSON.stringify(votes));
+    } catch {
+        // localStorage not available
+    }
+}
+
+function saveVotedIdeas(votedIds) {
+    try {
+        localStorage.setItem(VOTED_IDEAS_KEY, JSON.stringify(votedIds));
+    } catch {
+        // localStorage not available
+    }
+}
+
+function upvoteIdea(ideaId) {
+    const votedIds = getVotedIdeas();
+
+    // Check if already voted
+    if (votedIds.includes(ideaId)) {
+        return;
+    }
+
+    // Get current votes
+    const votes = getStoredVotes();
+    votes[ideaId] = (votes[ideaId] || 0) + 1;
+
+    // Save updated votes
+    saveVotes(votes);
+
+    // Mark as voted
+    votedIds.push(ideaId);
+    saveVotedIdeas(votedIds);
+
+    // Update UI
+    updateVoteDisplay(ideaId, votes[ideaId]);
+
+    // Mark button as voted
+    const btn = document.querySelector(`[data-idea-id="${ideaId}"] .upvote-btn`);
+    if (btn) {
+        btn.classList.add('voted');
+    }
+}
+
+function updateVoteDisplay(ideaId, count) {
+    const countEl = document.getElementById(`votes-${ideaId}`);
+    if (countEl) {
+        countEl.textContent = count;
+        countEl.classList.add('pop');
+        setTimeout(() => countEl.classList.remove('pop'), 300);
+    }
+}
+
+// Initialize vote counts on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const votes = getStoredVotes();
+    const votedIds = getVotedIdeas();
+
+    // Update all vote displays
+    Object.keys(votes).forEach(ideaId => {
+        updateVoteDisplay(ideaId, votes[ideaId]);
+    });
+
+    // Mark already voted buttons
+    votedIds.forEach(ideaId => {
+        const btn = document.querySelector(`[data-idea-id="${ideaId}"] .upvote-btn`);
+        if (btn) {
+            btn.classList.add('voted');
+        }
     });
 });
