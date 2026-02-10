@@ -170,19 +170,11 @@ class JourneyController {
 
     /**
      * Upvoting system for future project ideas
+     * Uses Cloudflare KV for global vote storage
      */
     initUpvoting() {
-        const VOTES_KEY = 'mikesaia_idea_votes';
-        const VOTED_KEY = 'mikesaia_voted_ideas';
-
-        const getStoredVotes = () => {
-            try {
-                const stored = localStorage.getItem(VOTES_KEY);
-                return stored ? JSON.parse(stored) : {};
-            } catch {
-                return {};
-            }
-        };
+        const WORKER_URL = 'https://geminiproxy.michaelsaia97.workers.dev';
+        const VOTED_KEY = 'mikesaia_voted_ideas'; // localStorage tracks which ideas THIS user voted on
 
         const getVotedIdeas = () => {
             try {
@@ -191,12 +183,6 @@ class JourneyController {
             } catch {
                 return [];
             }
-        };
-
-        const saveVotes = (votes) => {
-            try {
-                localStorage.setItem(VOTES_KEY, JSON.stringify(votes));
-            } catch { /* localStorage unavailable */ }
         };
 
         const saveVotedIdeas = (votedIds) => {
@@ -215,40 +201,64 @@ class JourneyController {
         };
 
         // Global upvote function
-        window.upvoteIdea = (ideaId) => {
+        window.upvoteIdea = async (ideaId) => {
             const votedIds = getVotedIdeas();
 
             if (votedIds.includes(ideaId)) return;
 
-            const votes = getStoredVotes();
-            votes[ideaId] = (votes[ideaId] || 0) + 1;
-            saveVotes(votes);
+            // Optimistic UI update
+            const countEl = document.getElementById(`votes-${ideaId}`);
+            const currentCount = parseInt(countEl?.textContent || '0', 10);
+            updateVoteDisplay(ideaId, currentCount + 1);
 
+            // Mark as voted locally (prevents double-voting)
             votedIds.push(ideaId);
             saveVotedIdeas(votedIds);
-
-            updateVoteDisplay(ideaId, votes[ideaId]);
 
             const btn = document.querySelector(`[data-idea-id="${ideaId}"] .upvote-btn`);
             if (btn) {
                 btn.classList.add('voted');
             }
+
+            // POST to worker to persist vote globally
+            try {
+                const res = await fetch(`${WORKER_URL}/vote`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ideaId })
+                });
+                const data = await res.json();
+                // Sync with server's count (in case of race conditions)
+                updateVoteDisplay(ideaId, data.count);
+            } catch (err) {
+                console.error('Vote failed:', err);
+            }
         };
 
-        // Initialize vote displays on load
-        const votes = getStoredVotes();
+        // Load global votes from worker on page load
+        const loadVotes = async () => {
+            try {
+                const res = await fetch(`${WORKER_URL}/votes`);
+                const votes = await res.json();
+                Object.entries(votes).forEach(([id, count]) => {
+                    updateVoteDisplay(id, count);
+                });
+            } catch (err) {
+                console.error('Failed to load votes:', err);
+            }
+        };
+
+        // Mark user's previous votes as voted (from localStorage)
         const votedIds = getVotedIdeas();
-
-        Object.keys(votes).forEach(ideaId => {
-            updateVoteDisplay(ideaId, votes[ideaId]);
-        });
-
         votedIds.forEach(ideaId => {
             const btn = document.querySelector(`[data-idea-id="${ideaId}"] .upvote-btn`);
             if (btn) {
                 btn.classList.add('voted');
             }
         });
+
+        // Fetch global vote counts
+        loadVotes();
     }
 
     /**
